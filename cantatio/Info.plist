@@ -19,6 +19,8 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>com.jessica-trinh.cantatio</string>
 			<key>CFBundleURLSchemes</key>
@@ -35,6 +37,19 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>spotify.com</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

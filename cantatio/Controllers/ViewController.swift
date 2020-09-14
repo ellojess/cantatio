@@ -107,6 +107,14 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
     
     @objc func loginButtonTapped(){
         print("login button pressed")
+            let scope: SPTScope = [.appRemoteControl, .playlistReadPrivate]
+            if #available(iOS 11, *) {
+              // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
+              sessionManager.initiateSession(with: scope, options: .clientOnly)
+            } else {
+              // Use this on iOS versions < 11 to use SFSafariViewController
+              sessionManager.initiateSession(with: scope, options: .clientOnly, presenting: self)
+            }
     }
     
     // MARK: - SPTSessionManagerDelegate

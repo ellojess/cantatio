@@ -115,6 +115,9 @@ class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteD
               // Use this on iOS versions < 11 to use SFSafariViewController
               sessionManager.initiateSession(with: scope, options: .clientOnly, presenting: self)
             }
+        
+        let nextVC: TabbarController = TabbarController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     // MARK: - SPTSessionManagerDelegate

@@ -23,6 +23,7 @@
 		73444237250DC71100B33B35 /* FavoriteSongsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73444236250DC71100B33B35 /* FavoriteSongsVC.swift */; };
 		7344423A250DC73600B33B35 /* ArtistInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73444239250DC73600B33B35 /* ArtistInfoVC.swift */; };
 		7344423C250DC7D800B33B35 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344423B250DC7D800B33B35 /* TabbarController.swift */; };
+		734707862511985B00F383B8 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734707852511985B00F383B8 /* UserProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		73444236250DC71100B33B35 /* FavoriteSongsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongsVC.swift; sourceTree = "<group>"; };
 		73444239250DC73600B33B35 /* ArtistInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoVC.swift; sourceTree = "<group>"; };
 		7344423B250DC7D800B33B35 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		734707852511985B00F383B8 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				73444234250DC6E800B33B35 /* Top50VC.swift */,
 				73444236250DC71100B33B35 /* FavoriteSongsVC.swift */,
 				73444239250DC73600B33B35 /* ArtistInfoVC.swift */,
+				734707852511985B00F383B8 /* UserProfileVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				734441F4250C70C300B33B35 /* AppDelegate.swift in Sources */,
 				73444235250DC6E800B33B35 /* Top50VC.swift in Sources */,
 				7344422C250C9AF700B33B35 /* ContentCollectionViewController.swift in Sources */,
+				734707862511985B00F383B8 /* UserProfileVC.swift in Sources */,
 				734441F6250C70C300B33B35 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

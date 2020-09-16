@@ -20,6 +20,7 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate{
         self.delegate = self
         setupViewControllers()
         setupTabBarIcons()
+        self.navigationItem.hidesBackButton = true
     }
     
     func setupTabBarIcons(){
@@ -42,15 +43,15 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate{
 
         let favoritesVC = FavoriteSongsVC()
         let navController1 = UINavigationController(rootViewController:favoritesVC)
-        favoritesVC.tabBarItem = UITabBarItem(title: "Your Favorite Songs", image: UIImage(named: "icon_favorite"), tag: 0)
+        favoritesVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_favorite"), tag: 0)
 
-        let HomeVC = ViewController()
+        let HomeVC = Top50VC()
         let navController2 = UINavigationController(rootViewController:HomeVC)
-        HomeVC.tabBarItem = UITabBarItem(title: "Cantaitio Home Page", image: UIImage(named: "icon_home"), tag: 1)
+        HomeVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_home"), tag: 1)
         
         let ProfileVC = UserProfileVC()
         let navController3 = UINavigationController(rootViewController:ProfileVC)
-        ProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "icon_profile"), tag: 1)
+        ProfileVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_profile"), tag: 1)
 
 
         viewControllers = [navController1, navController2, navController3]

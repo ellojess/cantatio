@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
+class LoginViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
     
     // MARK: Variables
     private let SpotifyClientID = "\(ids)"

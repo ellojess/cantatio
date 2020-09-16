@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		734441F4250C70C300B33B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734441F3250C70C300B33B35 /* AppDelegate.swift */; };
 		734441F6250C70C300B33B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734441F5250C70C300B33B35 /* SceneDelegate.swift */; };
-		734441F8250C70C300B33B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734441F7250C70C300B33B35 /* ViewController.swift */; };
-		734441FB250C70C300B33B35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 734441F9250C70C300B33B35 /* Main.storyboard */; };
+		734441F8250C70C300B33B35 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734441F7250C70C300B33B35 /* LoginViewController.swift */; };
 		734441FE250C70C300B33B35 /* cantatio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 734441FC250C70C300B33B35 /* cantatio.xcdatamodeld */; };
 		73444200250C70C400B33B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 734441FF250C70C400B33B35 /* Assets.xcassets */; };
 		73444203250C70C400B33B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73444201250C70C400B33B35 /* LaunchScreen.storyboard */; };
@@ -24,6 +23,7 @@
 		7344423A250DC73600B33B35 /* ArtistInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73444239250DC73600B33B35 /* ArtistInfoVC.swift */; };
 		7344423C250DC7D800B33B35 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344423B250DC7D800B33B35 /* TabbarController.swift */; };
 		734707862511985B00F383B8 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734707852511985B00F383B8 /* UserProfileVC.swift */; };
+		735972622512DB290036721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735972612512DB290036721C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,7 @@
 		734441F0250C70C300B33B35 /* cantatio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cantatio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		734441F3250C70C300B33B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		734441F5250C70C300B33B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		734441F7250C70C300B33B35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		734441FA250C70C300B33B35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		734441F7250C70C300B33B35 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		734441FD250C70C300B33B35 /* cantatio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cantatio.xcdatamodel; sourceTree = "<group>"; };
 		734441FF250C70C400B33B35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73444202250C70C400B33B35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		73444239250DC73600B33B35 /* ArtistInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoVC.swift; sourceTree = "<group>"; };
 		7344423B250DC7D800B33B35 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		734707852511985B00F383B8 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
+		735972612512DB290036721C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +170,8 @@
 		73444232250DC29D00B33B35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				734441F9250C70C300B33B35 /* Main.storyboard */,
 				73444201250C70C400B33B35 /* LaunchScreen.storyboard */,
+				735972612512DB290036721C /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 		73444233250DC66F00B33B35 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				734441F7250C70C300B33B35 /* ViewController.swift */,
+				734441F7250C70C300B33B35 /* LoginViewController.swift */,
 				7344423B250DC7D800B33B35 /* TabbarController.swift */,
 				7344422B250C9AF700B33B35 /* ContentCollectionViewController.swift */,
 				73444234250DC6E800B33B35 /* Top50VC.swift */,
@@ -295,8 +295,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73444203250C70C400B33B35 /* LaunchScreen.storyboard in Resources */,
+				735972622512DB290036721C /* Main.storyboard in Resources */,
 				73444200250C70C400B33B35 /* Assets.xcassets in Resources */,
-				734441FB250C70C300B33B35 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +325,7 @@
 				7344422A250C982D00B33B35 /* ids.swift in Sources */,
 				734441FE250C70C300B33B35 /* cantatio.xcdatamodeld in Sources */,
 				7344423C250DC7D800B33B35 /* TabbarController.swift in Sources */,
-				734441F8250C70C300B33B35 /* ViewController.swift in Sources */,
+				734441F8250C70C300B33B35 /* LoginViewController.swift in Sources */,
 				73444237250DC71100B33B35 /* FavoriteSongsVC.swift in Sources */,
 				734441F4250C70C300B33B35 /* AppDelegate.swift in Sources */,
 				73444235250DC6E800B33B35 /* Top50VC.swift in Sources */,
@@ -367,14 +367,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		734441F9250C70C300B33B35 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				734441FA250C70C300B33B35 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		73444201250C70C400B33B35 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

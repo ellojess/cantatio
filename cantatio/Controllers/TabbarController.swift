@@ -10,10 +10,51 @@ import Foundation
 import UIKit
 
 class TabbarController: UITabBarController, UITabBarControllerDelegate{
+    
+    var firstItemImageView: UIImageView!
+    var secondItemImageView: UIImageView!
+    var thirdItemImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        setupViewControllers()
+        setupTabBarIcons()
+    }
+    
+    func setupTabBarIcons(){
+
+        let firstItemView = self.tabBar.subviews[0]
+        let secondItemView = self.tabBar.subviews[1]
+        let thirdItemView = self.tabBar.subviews[2]
+
+        self.firstItemImageView = (firstItemView.subviews.first as! UIImageView)
+        self.firstItemImageView.contentMode = .center
+
+        self.secondItemImageView = (secondItemView.subviews.first as! UIImageView)
+        self.secondItemImageView.contentMode = .center
+        
+        self.thirdItemImageView = (thirdItemView.subviews.first as! UIImageView)
+        self.thirdItemImageView.contentMode = .center
+    }
+    
+    func setupViewControllers(){
+
+        let favoritesVC = FavoriteSongsVC()
+        let navController1 = UINavigationController(rootViewController:favoritesVC)
+        favoritesVC.tabBarItem = UITabBarItem(title: "Your Favorite Songs", image: UIImage(named: "icon_favorite"), tag: 0)
+
+        let HomeVC = ViewController()
+        let navController2 = UINavigationController(rootViewController:HomeVC)
+        HomeVC.tabBarItem = UITabBarItem(title: "Cantaitio Home Page", image: UIImage(named: "icon_home"), tag: 1)
+        
+        let ProfileVC = UserProfileVC()
+        let navController3 = UINavigationController(rootViewController:ProfileVC)
+        ProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "icon_profile"), tag: 1)
+
+
+        viewControllers = [navController1, navController2, navController3]
+
     }
 
 }

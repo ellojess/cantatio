@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class TabbarController: UITabBarController, UITabBarControllerDelegate{
     
@@ -45,13 +46,14 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate{
         let navController1 = UINavigationController(rootViewController:favoritesVC)
         favoritesVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_favorite"), tag: 0)
 
-        let HomeVC = Top50VC()
-        let navController2 = UINavigationController(rootViewController:HomeVC)
-        HomeVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_home"), tag: 1)
+        let HomeVC = Top50View()
+//        let navController2 = UINavigationController(rootViewController:HomeVC)
+        let navController2 = UIHostingController(rootView:HomeVC)
+        navController2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_home"), tag: 1)
         
-        let ProfileVC = UserProfileVC()
-        let navController3 = UINavigationController(rootViewController:ProfileVC)
-        ProfileVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_profile"), tag: 1)
+        let ProfileVC = ProfileContentView()
+        let navController3 = UIHostingController(rootView:ProfileVC)
+        navController3.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_profile"), tag: 2)
 
 
         viewControllers = [navController1, navController2, navController3]

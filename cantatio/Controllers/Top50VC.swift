@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class Top50VC: UIViewController {
     
@@ -17,4 +18,50 @@ class Top50VC: UIViewController {
         view.backgroundColor = .orange
     }
     
+    override func loadView() {
+        super.loadView()
+    }
+    
 }
+
+struct Artist: Identifiable {
+    var id: Int
+    let name: String
+}
+
+struct Top50View: View {
+    
+    let artists: [Artist] = [
+        // mock data
+        .init(id: 0, name: "Bob"),
+        .init(id: 1, name: "Tim"),
+        .init(id: 2, name: "Kevin")
+    ]
+    
+    var body: some View {
+        NavigationView{
+            List{
+                //                Text($0.name)
+                //                Text("First Row")
+                ForEach(artists){ artist in
+                    // artist row
+                    HStack{
+                        // mock data of artist image
+                        Image("icon_profile")
+                            .resizable()
+                            .frame(width: 70, height: 70)
+                            .clipped()
+                        Text(artist.name).font(.headline)
+                    }
+                }
+            }.navigationBarTitle(Text("Top 50 Artists"))
+        }
+    }
+}
+
+struct Top50View_Previews: PreviewProvider {
+    static var previews: some View {
+        Top50View()
+    }
+}
+

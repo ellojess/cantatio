@@ -65,11 +65,12 @@ struct TrackRow: View {
                 .padding(.leading, 8)
                 .padding(.trailing, 125)
                 .lineLimit(nil)
+            Spacer()
             Image("icon_play")
                 .padding(.trailing, 10)
             Image("icon_favorite")
-                .padding(.trailing, -10)
         }.padding(.leading, 10)
+            .buttonStyle(PlainButtonStyle())
     }
 }
 

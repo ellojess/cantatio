@@ -42,9 +42,9 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate{
     
     func setupViewControllers(){
 
-        let favoritesVC = FavoriteSongsVC()
-        let navController1 = UINavigationController(rootViewController:favoritesVC)
-        favoritesVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_favorite"), tag: 0)
+        let favoritesVC = FavSongView()
+        let navController1 = UIHostingController(rootView:favoritesVC)
+        navController1.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_favorite"), tag: 0)
 
         let HomeVC = Top50View()
 //        let navController2 = UINavigationController(rootViewController:HomeVC)

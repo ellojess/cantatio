@@ -55,9 +55,9 @@ class LoginViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRe
     let loginButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Login with Spotify", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 18)
+        button.titleLabel?.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         button.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:1.0)
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRe
     
     // MARK: - Variables
     //    private let playURI = ""
-    private let playURI = "spotify:track:20I6sIOMTCkB6w7ryavxtO"
+//    private let playURI = "spotify:track:20I6sIOMTCkB6w7ryavxtO"
     
 //    lazy var appRemote: SPTAppRemote = {
 //      let appRemote = SPTAppRemote(configuration: self.configuration, logLevel: .debug)
@@ -89,7 +89,7 @@ class LoginViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRe
     
     func setupView() {
         view.addSubview(stackView)
-        stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.7).isActive = true
+        stackView.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.8).isActive = true
         stackView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.13).isActive = true
         stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -102,6 +102,8 @@ class LoginViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRe
         loginButton.heightAnchor.constraint(equalToConstant: 10).isActive = true
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+        navigationController?.navigationBar.isHidden = true
         
     }
     
@@ -117,6 +119,7 @@ class LoginViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRe
             }
         
         let nextVC: TabbarController = TabbarController()
+        nextVC.selectedIndex = 1
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

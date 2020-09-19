@@ -52,6 +52,9 @@ struct Top50View: View {
                             .frame(width: 70, height: 70)
                             .clipped()
                         Text(artist.name).font(.headline)
+                        NavigationLink(destination: ArtistInfoView()) {
+                            Text("")
+                        }
                     }
                 }
             }.navigationBarTitle(Text("Top 50 Artists"))
@@ -65,3 +68,18 @@ struct Top50View_Previews: PreviewProvider {
     }
 }
 
+
+// MARK: UI Helpers
+struct HiddenNavigationBar: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
+    }
+}
+
+extension View {
+    func hiddenNavigationBarStyle() -> some View {
+        modifier( HiddenNavigationBar() )
+    }
+}

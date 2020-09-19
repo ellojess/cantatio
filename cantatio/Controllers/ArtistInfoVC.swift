@@ -46,7 +46,9 @@ struct ArtistInfoView: View {
                     TrackRow(song: song)
                 }
                 // TODO: replave "Artist" with actual artist name
-                }.navigationBarTitle(Text("Artist"))
+//            }.navigationBarTitle(Text("Artist"), displayMode: .inline)
+            }
+            .hiddenNavigationBarStyle()
         }
     }
 }
@@ -80,4 +82,17 @@ struct ArtistInfoView_Previews: PreviewProvider {
     }
 }
 
-
+//// MARK: UI Helpers
+//struct HiddenNavigationBar: ViewModifier {
+//    func body(content: Content) -> some View {
+//        content
+//        .navigationBarTitle("")
+//        .navigationBarHidden(true)
+//    }
+//}
+//
+//extension View {
+//    func hiddenNavigationBarStyle() -> some View {
+//        modifier( HiddenNavigationBar() )
+//    }
+//}

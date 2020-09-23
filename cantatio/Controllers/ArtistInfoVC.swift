@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import AVFoundation
 
 class ArtistInfoVC: UIViewController {
     
@@ -69,14 +70,26 @@ struct TrackRow: View {
                 .padding(.trailing, 125)
                 .lineLimit(nil)
             Spacer()
-            Button(action: {
-                print("button tapped")
-                self.buttonTapped.toggle()
-                Image("icon_play")
-            }) {
-                Image("icon_pause")
+            
+//            Button {
+//                print("button tapped")
+//                self.buttonTapped.toggle()
+//            }{Image(self.buttonTapped ? "icon_play":"icon_pause")}
+            
+            if buttonTapped {
+                Button(action: {
+                    print("button tapped")
+                    self.buttonTapped.toggle()
+                    Image("icon_play")
+
+                }){
+                    Image("icon_pause")
+
+                }
             }
             
+            Image("icon_play")
+            Image("icon_pause")
             Image("icon_favorite")
         }.padding(.leading, 10)
             .buttonStyle(PlainButtonStyle())

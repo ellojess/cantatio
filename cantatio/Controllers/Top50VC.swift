@@ -76,10 +76,12 @@ struct HiddenNavigationBar: ViewModifier {
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)
     }
+    
 }
 
 extension View {
     func hiddenNavigationBarStyle() -> some View {
         modifier( HiddenNavigationBar() )
     }
+    
 }

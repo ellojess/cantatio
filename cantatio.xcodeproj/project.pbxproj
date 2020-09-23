@@ -24,6 +24,7 @@
 		7344423C250DC7D800B33B35 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344423B250DC7D800B33B35 /* TabbarController.swift */; };
 		734707862511985B00F383B8 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734707852511985B00F383B8 /* UserProfileVC.swift */; };
 		735972622512DB290036721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735972612512DB290036721C /* Main.storyboard */; };
+		7361F36B251ADAA70030FF27 /* AristList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361F36A251ADAA70030FF27 /* AristList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		7344423B250DC7D800B33B35 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		734707852511985B00F383B8 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		735972612512DB290036721C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7361F36A251ADAA70030FF27 /* AristList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AristList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				73444229250C982D00B33B35 /* ids.swift */,
 				734441FC250C70C300B33B35 /* cantatio.xcdatamodeld */,
+				7361F36A251ADAA70030FF27 /* AristList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				734441FE250C70C300B33B35 /* cantatio.xcdatamodeld in Sources */,
 				7344423C250DC7D800B33B35 /* TabbarController.swift in Sources */,
 				734441F8250C70C300B33B35 /* LoginViewController.swift in Sources */,
+				7361F36B251ADAA70030FF27 /* AristList.swift in Sources */,
 				73444237250DC71100B33B35 /* FavoriteSongsVC.swift in Sources */,
 				734441F4250C70C300B33B35 /* AppDelegate.swift in Sources */,
 				73444235250DC6E800B33B35 /* Top50VC.swift in Sources */,

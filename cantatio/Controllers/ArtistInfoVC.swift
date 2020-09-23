@@ -55,6 +55,7 @@ struct ArtistInfoView: View {
 
 struct TrackRow: View {
     let song: TopTracks
+    @State private var buttonTapped = false
     
     var body: some View {
         HStack{
@@ -68,8 +69,14 @@ struct TrackRow: View {
                 .padding(.trailing, 125)
                 .lineLimit(nil)
             Spacer()
-            Image("icon_play")
-                .padding(.trailing, 10)
+            Button(action: {
+                print("button tapped")
+                self.buttonTapped.toggle()
+                Image("icon_play")
+            }) {
+                Image("icon_pause")
+            }
+            
             Image("icon_favorite")
         }.padding(.leading, 10)
             .buttonStyle(PlainButtonStyle())

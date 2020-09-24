@@ -10,19 +10,49 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class Top50VC: UIViewController {
+class Top50VC: AuthVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .orange
+        
+        let controller = UIHostingController(rootView: Top50View())
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        self.addChild(controller)
+        self.view.addSubview(controller.view)
+        controller.didMove(toParent: self)
     }
     
     override func loadView() {
         super.loadView()
     }
     
+    func fetchArtwork(for track:SPTAppRemoteTrack) {
+        appRemote.imageAPI?.fetchImage(forItem: track, with: CGSize.zero, callback: { [weak self] (image, error) in
+            if let error = error {
+                print("Error fetching track image: " + error.localizedDescription)
+            } else if let image = image as? UIImage {
+//                self?.imageView.image = image
+            }
+        })
+    }
+    
 }
+
+//struct TopArtistList: UIViewControllerRepresentable {
+//    func makeUIViewController(context: Context) -> Top50VC {
+//        let artistList = Top50VC()
+//        return artistList
+//    }
+//
+//    func updateUIViewController(_ uiViewController: Top50VC, context: Context) {
+//        <#code#>
+//    }
+//
+//
+//
+//}
 
 struct Artist: Identifiable {
     var id: Int

@@ -47,6 +47,7 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate{
         navController1.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_favorite"), tag: 0)
 
         let HomeVC = Top50View()
+//        let HomeVC = Top50VC()
 //        let navController2 = UINavigationController(rootViewController:HomeVC)
         let navController2 = UIHostingController(rootView:HomeVC)
         navController2.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_home"), tag: 1)
@@ -60,4 +61,10 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate{
 
     }
 
+}
+
+struct TabbarController_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
 }

@@ -40,7 +40,7 @@ SPTAppRemoteDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds) //needed to not use storyboard
-        let vc = LoginViewController() //needed to not use storyboard
+        let vc = AuthVC() //needed to not use storyboard
         navigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navigationController //needed to not use storyboard
         window?.makeKeyAndVisible() //needed to not use storyboard
@@ -96,10 +96,10 @@ SPTAppRemoteDelegate {
         print("didDisconnectWithError")
     }
 
-    var playerViewController: LoginViewController {
+    var playerViewController: AuthVC {
         get {
             let navController = self.window?.rootViewController?.children[0] as! UINavigationController
-            return navController.topViewController as! LoginViewController
+            return navController.topViewController as! AuthVC
         }
     }
 

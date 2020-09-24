@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
+class AuthVC: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
     
     // MARK: Variables
     private let SpotifyClientID = "\(ids)"
@@ -163,6 +163,18 @@ class LoginViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRe
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
         update(playerState: playerState)
     }
+    
+    // MARK: - Actions
+    
+//    func fetchArtwork(for track:SPTAppRemoteTrack) {
+//        appRemote.imageAPI?.fetchImage(forItem: track, with: CGSize.zero, callback: { [weak self] (image, error) in
+//            if let error = error {
+//                print("Error fetching track image: " + error.localizedDescription)
+//            } else if let image = image as? UIImage {
+////                self?.imageView.image = image
+//            }
+//        })
+//    }
     
     
     

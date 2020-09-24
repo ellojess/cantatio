@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		734441F4250C70C300B33B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734441F3250C70C300B33B35 /* AppDelegate.swift */; };
 		734441F6250C70C300B33B35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734441F5250C70C300B33B35 /* SceneDelegate.swift */; };
-		734441F8250C70C300B33B35 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734441F7250C70C300B33B35 /* LoginViewController.swift */; };
+		734441F8250C70C300B33B35 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734441F7250C70C300B33B35 /* AuthVC.swift */; };
 		734441FE250C70C300B33B35 /* cantatio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 734441FC250C70C300B33B35 /* cantatio.xcdatamodeld */; };
 		73444200250C70C400B33B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 734441FF250C70C400B33B35 /* Assets.xcassets */; };
 		73444203250C70C400B33B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73444201250C70C400B33B35 /* LaunchScreen.storyboard */; };
@@ -48,7 +48,7 @@
 		734441F0250C70C300B33B35 /* cantatio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cantatio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		734441F3250C70C300B33B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		734441F5250C70C300B33B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		734441F7250C70C300B33B35 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		734441F7250C70C300B33B35 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		734441FD250C70C300B33B35 /* cantatio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cantatio.xcdatamodel; sourceTree = "<group>"; };
 		734441FF250C70C400B33B35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73444202250C70C400B33B35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 		73444233250DC66F00B33B35 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				734441F7250C70C300B33B35 /* LoginViewController.swift */,
+				734441F7250C70C300B33B35 /* AuthVC.swift */,
 				7344423B250DC7D800B33B35 /* TabbarController.swift */,
 				7344422B250C9AF700B33B35 /* ContentCollectionViewController.swift */,
 				73444234250DC6E800B33B35 /* Top50VC.swift */,
@@ -328,7 +328,7 @@
 				7344422A250C982D00B33B35 /* ids.swift in Sources */,
 				734441FE250C70C300B33B35 /* cantatio.xcdatamodeld in Sources */,
 				7344423C250DC7D800B33B35 /* TabbarController.swift in Sources */,
-				734441F8250C70C300B33B35 /* LoginViewController.swift in Sources */,
+				734441F8250C70C300B33B35 /* AuthVC.swift in Sources */,
 				7361F36B251ADAA70030FF27 /* AristList.swift in Sources */,
 				73444237250DC71100B33B35 /* FavoriteSongsVC.swift in Sources */,
 				734441F4250C70C300B33B35 /* AppDelegate.swift in Sources */,

@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import SwiftUI
+import AVFoundation
+
 
 class Top50VC: AuthVC {
     
@@ -28,31 +30,53 @@ class Top50VC: AuthVC {
         super.loadView()
     }
     
-    func fetchArtwork(for track:SPTAppRemoteTrack) {
-        appRemote.imageAPI?.fetchImage(forItem: track, with: CGSize.zero, callback: { [weak self] (image, error) in
-            if let error = error {
-                print("Error fetching track image: " + error.localizedDescription)
-            } else if let image = image as? UIImage {
-//                self?.imageView.image = image
-            }
-        })
+//    func fetchArtwork(for track:SPTAppRemoteTrack) {
+//        appRemote.imageAPI?.fetchImage(forItem: track, with: CGSize.zero, callback: { [weak self] (image, error) in
+//            if let error = error {
+//                print("Error fetching track image: " + error.localizedDescription)
+//            } else if let image = image as? UIImage {
+////                self?.imageView.image = image
+//            }
+//        })
+//    }
+    
+}
+
+class Top50ListView: UIView {
+//    func fetchArtwork(for track:SPTAppRemoteTrack) {
+//        appRemote.imageAPI?.fetchImage(forItem: track, with: CGSize.zero, callback: { [weak self] (image, error) in
+//            if let error = error {
+//                print("Error fetching track image: " + error.localizedDescription)
+//            } else if let image = image as? UIImage {
+//                //  self?.imageView.image = image
+//            }
+//        })
+//    }
+    
+    // testing
+    func foo() {
+        print("foo called")
+    }
+    
+    
+}
+
+struct Top50ListRepresentable: UIViewRepresentable {
+    let topListView = Top50ListView()
+    
+    func makeUIView(context: Context) -> Top50ListView {
+        topListView
+    }
+
+    func updateUIView(_ uiView: Top50ListView, context: Context) {
+    }
+    
+    func callFoo() {
+        topListView.foo()
     }
     
 }
 
-//struct TopArtistList: UIViewControllerRepresentable {
-//    func makeUIViewController(context: Context) -> Top50VC {
-//        let artistList = Top50VC()
-//        return artistList
-//    }
-//
-//    func updateUIViewController(_ uiViewController: Top50VC, context: Context) {
-//        <#code#>
-//    }
-//
-//
-//
-//}
 
 struct Artist: Identifiable {
     var id: Int
@@ -61,12 +85,16 @@ struct Artist: Identifiable {
 
 struct Top50View: View {
     
+    let top50List = Top50ListRepresentable()
+    
     let artists: [Artist] = [
         // mock data
         .init(id: 0, name: "Bob"),
         .init(id: 1, name: "Tim"),
         .init(id: 2, name: "Kevin")
     ]
+    
+    // TODO: how to update artist image from API to representable view 
     
     var body: some View {
         NavigationView{

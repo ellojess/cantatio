@@ -21,6 +21,33 @@ class ArtistInfoVC: UIViewController {
     
 }
 
+class TopTracksListView: UIView {
+
+    // testing
+    func foo() {
+        print("foo called")
+    }
+    
+    
+}
+
+struct TopTracksRepresentable: UIViewRepresentable {
+    
+    let topListView = TopTracksListView()
+    
+    func makeUIView(context: Context) -> TopTracksListView {
+        topListView
+    }
+
+    func updateUIView(_ uiView: TopTracksListView, context: Context) {
+    }
+    
+    func callFoo() {
+        topListView.foo()
+    }
+    
+}
+
 
 struct TopTracks: Identifiable {
     var id: Int
@@ -56,6 +83,8 @@ struct ArtistInfoView: View {
 
 struct TrackRow: View {
     let song: TopTracks
+    let topListView = TopTracksListView()
+    
     @State private var buttonTapped = false
     
     var body: some View {
@@ -76,19 +105,25 @@ struct TrackRow: View {
 //                self.buttonTapped.toggle()
 //            }{Image(self.buttonTapped ? "icon_play":"icon_pause")}
             
-            if buttonTapped {
-                Button(action: {
-                    print("button tapped")
-                    self.buttonTapped.toggle()
-                    Image("icon_play")
-
-                }){
-                    Image("icon_pause")
-
-                }
-            }
+//            if buttonTapped {
+//                Button(action: {
+//                    print("button tapped")
+//                    self.buttonTapped.toggle()
+//                    Image("icon_play")
+//                    print(self.topListView.foo())
+//
+//                }){
+//                    Image("icon_pause")
+//
+//                }
+//            }
             
-            Image("icon_play")
+            Button(action: {
+                print(self.topListView.foo())
+            }) {
+                Image("icon_play")
+            }
+//            Image("icon_play")
             Image("icon_pause")
             Image("icon_favorite")
         }.padding(.leading, 10)

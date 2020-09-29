@@ -23,9 +23,17 @@ class ArtistInfoVC: UIViewController {
 
 class TopTracksListView: UIView {
 
-    // testing
+    // testing representable
     func foo() {
         print("foo called")
+    }
+    
+    func foo2() {
+        print("foo2 called")
+    }
+    
+    func foo3() {
+        print("foo3 called")
     }
     
     
@@ -58,6 +66,10 @@ struct TopTracks: Identifiable {
 
 struct ArtistInfoView: View {
     
+    @State var imageName: String = "icon_favorite"
+    
+    let topListView = TopTracksListView()
+    
     let songs: [TopTracks] = [
         // mock data
         .init(id: 0, songtitle: "do", coverphoto: "Bob"),
@@ -70,10 +82,11 @@ struct ArtistInfoView: View {
             List{
                 Text("Top Tracks").font(.largeTitle)
                 ForEach(songs){ song in
+                    
                     // artist row
                     TrackRow(song: song)
                 }
-                // TODO: replave "Artist" with actual artist name
+                // TODO: replace "Artist" with actual artist name
 //            }.navigationBarTitle(Text("Artist"), displayMode: .inline)
             }
             .hiddenNavigationBarStyle()
@@ -85,7 +98,8 @@ struct TrackRow: View {
     let song: TopTracks
     let topListView = TopTracksListView()
     
-    @State private var buttonTapped = false
+//    @State private var buttonTapped = false
+    @State var imageName: String = "icon_favorite"
     
     var body: some View {
         HStack{
@@ -96,36 +110,38 @@ struct TrackRow: View {
                 .clipped()
             Text(song.songtitle).font(.headline)
                 .padding(.leading, 8)
-                .padding(.trailing, 125)
+//                .padding(.trailing, 125)
                 .lineLimit(nil)
             Spacer()
-            
-//            Button {
-//                print("button tapped")
-//                self.buttonTapped.toggle()
-//            }{Image(self.buttonTapped ? "icon_play":"icon_pause")}
-            
-//            if buttonTapped {
-//                Button(action: {
-//                    print("button tapped")
-//                    self.buttonTapped.toggle()
-//                    Image("icon_play")
-//                    print(self.topListView.foo())
-//
-//                }){
-//                    Image("icon_pause")
-//
-//                }
-//            }
             
             Button(action: {
                 print(self.topListView.foo())
             }) {
                 Image("icon_play")
             }
-//            Image("icon_play")
-            Image("icon_pause")
-            Image("icon_favorite")
+            
+            Button(action: {
+                print(self.topListView.foo2())
+            }) {
+                Image("icon_pause")
+            }
+            
+            Button(action: {
+                print(self.topListView.foo3())
+            }) {
+                Image("icon_favorite")
+            }
+            
+//            Button(action: {
+////                        Image("icon_favorite-filled")
+//                self.imageName = "icon_favorite-filled"
+//                print(self.topListView.foo3())
+//            }) {
+////                Image("icon_favorite")
+//                Image(systemName: imageName)
+//            }
+
+
         }.padding(.leading, 10)
             .buttonStyle(PlainButtonStyle())
     }
@@ -136,18 +152,3 @@ struct ArtistInfoView_Previews: PreviewProvider {
         ArtistInfoView()
     }
 }
-
-//// MARK: UI Helpers
-//struct HiddenNavigationBar: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//        .navigationBarTitle("")
-//        .navigationBarHidden(true)
-//    }
-//}
-//
-//extension View {
-//    func hiddenNavigationBarStyle() -> some View {
-//        modifier( HiddenNavigationBar() )
-//    }
-//}

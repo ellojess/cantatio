@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import SwiftUI
+import AVFoundation
+import CoreData
 
 class FavoriteSongsVC: UIViewController {
     

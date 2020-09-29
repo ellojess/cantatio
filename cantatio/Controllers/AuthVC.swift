@@ -186,6 +186,8 @@ class AuthVC: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate,
         })
     }
     
+    
+    
     // MARK: - Private Helpers
 
     private func presentAlertController(title: String, message: String, buttonTitle: String) {

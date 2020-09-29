@@ -176,7 +176,15 @@ class AuthVC: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate,
 //        })
 //    }
     
-    
+    // MARK: - Image API
+    private func fetchAlbumArtForTrack(_ track: SPTAppRemoteTrack, callback: @escaping (UIImage) -> Void ) {
+        appRemote.imageAPI?.fetchImage(forItem: track, with:CGSize(width: 1000, height: 1000), callback: { (image, error) -> Void in
+            guard error == nil else { return }
+
+            let image = image as! UIImage
+            callback(image)
+        })
+    }
     
     // MARK: - Private Helpers
 
@@ -188,6 +196,7 @@ class AuthVC: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate,
             self.present(controller, animated: true)
         }
     }
+
     
     func update(playerState: SPTAppRemotePlayerState) {
         if lastPlayerState?.track.uri != playerState.track.uri {

@@ -25,6 +25,7 @@
 		734707862511985B00F383B8 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734707852511985B00F383B8 /* UserProfileVC.swift */; };
 		735972622512DB290036721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735972612512DB290036721C /* Main.storyboard */; };
 		7361F36B251ADAA70030FF27 /* AristList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361F36A251ADAA70030FF27 /* AristList.swift */; };
+		73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		734707852511985B00F383B8 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		735972612512DB290036721C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7361F36A251ADAA70030FF27 /* AristList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AristList.swift; sourceTree = "<group>"; };
+		73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL-Parameter-Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				734441FF250C70C400B33B35 /* Assets.xcassets */,
+				73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				734441F4250C70C300B33B35 /* AppDelegate.swift in Sources */,
 				73444235250DC6E800B33B35 /* Top50VC.swift in Sources */,
 				7344422C250C9AF700B33B35 /* ContentCollectionViewController.swift in Sources */,
+				73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */,
 				734707862511985B00F383B8 /* UserProfileVC.swift in Sources */,
 				734441F6250C70C300B33B35 /* SceneDelegate.swift in Sources */,
 			);

@@ -70,7 +70,7 @@ struct ArtistInfoView: View {
     
     let topListView = TopTracksListView()
     
-    let songs: [TopTracks] = [
+    @State var songs: [TopTracks] = [
         // mock data
         .init(id: 0, songtitle: "do", coverphoto: "Bob"),
         .init(id: 1, songtitle: "re", coverphoto: "Tim"),
@@ -84,7 +84,8 @@ struct ArtistInfoView: View {
                 ForEach(songs){ song in
                     
                     // artist row
-                    TrackRow(song: song)
+                    TrackRow(songs: $songs, index: song.id)
+                    
                 }
                 // TODO: replace "Artist" with actual artist name
 //            }.navigationBarTitle(Text("Artist"), displayMode: .inline)
@@ -95,56 +96,63 @@ struct ArtistInfoView: View {
 }
 
 struct TrackRow: View {
-    let song: TopTracks
+    @Binding var songs: [TopTracks]
     let topListView = TopTracksListView()
+    let index: Int
     
-//    @State private var buttonTapped = false
     @State var imageName: String = "icon_favorite"
     
     var body: some View {
+        
         HStack{
             // mock data of artist image
             Image("icon_profile")
                 .resizable()
                 .frame(width: 70, height: 70)
                 .clipped()
-            Text(song.songtitle).font(.headline)
+            Text(songs[index].songtitle).font(.headline)
                 .padding(.leading, 8)
 //                .padding(.trailing, 125)
                 .lineLimit(nil)
             Spacer()
             
-            Button(action: {
-                print(self.topListView.foo())
-            }) {
-                Image("icon_play")
-            }
+            Buttons(chosenType: .play)
+                .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+                    print(self.topListView.foo())
+                })
+            Buttons(chosenType: .pause)
+                .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+                    print(self.topListView.foo2())
+                })
+            Buttons(chosenType: .favorite)
+                .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+                    print(self.topListView.foo3())
+                })
             
-            Button(action: {
-                print(self.topListView.foo2())
-            }) {
-                Image("icon_pause")
-            }
-            
-            Button(action: {
-                print(self.topListView.foo3())
-            }) {
-                Image("icon_favorite")
-            }
-            
-//            Button(action: {
-////                        Image("icon_favorite-filled")
-//                self.imageName = "icon_favorite-filled"
-//                print(self.topListView.foo3())
-//            }) {
-////                Image("icon_favorite")
-//                Image(systemName: imageName)
-//            }
-
-
         }.padding(.leading, 10)
-            .buttonStyle(PlainButtonStyle())
+        .buttonStyle(PlainButtonStyle())
+
+
+        }
     }
+
+
+struct Buttons: View {
+    @State var buttonImage: String = "icon_pause"
+    
+    enum ImageType: String, CaseIterable {
+        case play = "icon_play"
+        case pause = "icon_pause"
+        case favorite = "icon_favorite"
+    }
+    
+    let chosenType: ImageType
+    
+    var body: some View {
+        Image(chosenType.rawValue)
+    }
+    
+    
 }
 
 struct ArtistInfoView_Previews: PreviewProvider {

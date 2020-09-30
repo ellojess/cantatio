@@ -1,5 +1,5 @@
 //
-//  ArtistInfoVC.swift
+//  FavoriteSongsVC.swift
 //  cantatio
 //
 //  Created by Jessica Trinh on 9/12/20.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ArtistInfoVC: UIViewController {
+class FavSongsVC: UIViewController {
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -42,7 +42,7 @@ class ArtistInfoVC: UIViewController {
     
 }
 
-extension ArtistInfoVC: UITableViewDataSource, UITableViewDelegate {
+extension FavSongsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }

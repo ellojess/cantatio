@@ -8,139 +8,52 @@
 
 import Foundation
 import UIKit
-import SwiftUI
-import AVFoundation
-//import Spartan
 
-
-class Top50VC: AuthVC {
+class Top50VC: UIViewController {
+    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = 100
+        return tableView
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tableView.register(Top50Cell.self, forCellReuseIdentifier: "cell")
         view.backgroundColor = .orange
+        setUpTableView()
+    }
+    
+    func setUpTableView(){
+        view.addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        let controller = UIHostingController(rootView: Top50View())
-        controller.view.translatesAutoresizingMaskIntoConstraints = false
-        self.addChild(controller)
-        self.view.addSubview(controller.view)
-        controller.didMove(toParent: self)
-    }
-    
-    override func loadView() {
-        super.loadView()
-    }
-    
-//    func fetchArtwork(for track:SPTAppRemoteTrack) {
-//        appRemote.imageAPI?.fetchImage(forItem: track, with: CGSize.zero, callback: { [weak self] (image, error) in
-//            if let error = error {
-//                print("Error fetching track image: " + error.localizedDescription)
-//            } else if let image = image as? UIImage {
-////                self?.imageView.image = image
-//            }
-//        })
-//    }
-    
-}
-
-class Top50ListView: UIView {
-//    func fetchArtwork(for track:SPTAppRemoteTrack) {
-//        appRemote.imageAPI?.fetchImage(forItem: track, with: CGSize.zero, callback: { [weak self] (image, error) in
-//            if let error = error {
-//                print("Error fetching track image: " + error.localizedDescription)
-//            } else if let image = image as? UIImage {
-//                //  self?.imageView.image = image
-//            }
-//        })
-//    }
-    
-    // testing
-    func foo() {
-        print("foo called")
-    }
-    
-    
-}
-
-struct Top50ListRepresentable: UIViewRepresentable {
-    let topListView = Top50ListView()
-    
-    func makeUIView(context: Context) -> Top50ListView {
-        topListView
-    }
-
-    func updateUIView(_ uiView: Top50ListView, context: Context) {
-    }
-    
-    func callFoo() {
-        topListView.foo()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
 }
 
-
-struct Artist: Identifiable {
-    var id: Int
-    let name: String
-}
-
-struct Top50View: View {
-    
-    let top50List = Top50ListRepresentable()
-    
-    let artists: [Artist] = [
-        // mock data
-        .init(id: 0, name: "Bob"),
-        .init(id: 1, name: "Tim"),
-        .init(id: 2, name: "Kevin")
-    ]
-    
-    // TODO: how to update artist image from API to representable view 
-    
-    var body: some View {
-        NavigationView{
-            List{
-                //                Text($0.name)
-                //                Text("First Row")
-                ForEach(artists){ artist in
-                    // artist row
-                    HStack{
-                        // mock data of artist image
-                        Image("icon_profile")
-                            .resizable()
-                            .frame(width: 70, height: 70)
-                            .clipped()
-                        Text(artist.name).font(.headline)
-                        NavigationLink(destination: ArtistInfoView()) {
-                            Text("")
-                        }
-                    }
-                }
-            }.navigationBarTitle(Text("Top 50 Artists"))
-        }
-    }
-}
-
-struct Top50View_Previews: PreviewProvider {
-    static var previews: some View {
-        Top50View()
-    }
-}
-
-
-// MARK: UI Helpers
-struct HiddenNavigationBar: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-        .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
+extension Top50VC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
     
-}
-
-extension View {
-    func hiddenNavigationBarStyle() -> some View {
-        modifier( HiddenNavigationBar() )
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Top50Cell
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected item in row \(indexPath.row)")
+        let nextView: ArtistInfoVC = ArtistInfoVC()
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
     
 }

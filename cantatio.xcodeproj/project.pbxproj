@@ -16,13 +16,13 @@
 		7344420E250C70C400B33B35 /* cantatioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344420D250C70C400B33B35 /* cantatioTests.swift */; };
 		73444219250C70C400B33B35 /* cantatioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73444218250C70C400B33B35 /* cantatioUITests.swift */; };
 		73444227250C8BC500B33B35 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73444226250C8BC500B33B35 /* SpotifyiOS.framework */; };
-		7344422A250C982D00B33B35 /* ids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73444229250C982D00B33B35 /* ids.swift */; };
 		73444235250DC6E800B33B35 /* Top50VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73444234250DC6E800B33B35 /* Top50VC.swift */; };
 		73444237250DC71100B33B35 /* FavSongsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73444236250DC71100B33B35 /* FavSongsVC.swift */; };
 		7344423A250DC73600B33B35 /* ArtistInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73444239250DC73600B33B35 /* ArtistInfoVC.swift */; };
 		7344423C250DC7D800B33B35 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344423B250DC7D800B33B35 /* TabbarController.swift */; };
 		735656A725254337001C2717 /* Top50Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735656A625254337001C2717 /* Top50Cell.swift */; };
 		735656AC25254355001C2717 /* SongTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735656AB25254355001C2717 /* SongTrackCell.swift */; };
+		735657072525C220001C2717 /* ids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735657062525C220001C2717 /* ids.swift */; };
 		735972622512DB290036721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735972612512DB290036721C /* Main.storyboard */; };
 		73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */; };
 		8BEC4A1E0FE2A0734B773888 /* Pods_cantatio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1481A2D1100C356D65C68EA1 /* Pods_cantatio.framework */; };
@@ -66,13 +66,13 @@
 		7344421A250C70C400B33B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73444226250C8BC500B33B35 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		73444228250C8CB000B33B35 /* cantatio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cantatio-Bridging-Header.h"; sourceTree = "<group>"; };
-		73444229250C982D00B33B35 /* ids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ids.swift; path = ../ids.swift; sourceTree = "<group>"; };
 		73444234250DC6E800B33B35 /* Top50VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50VC.swift; sourceTree = "<group>"; };
 		73444236250DC71100B33B35 /* FavSongsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavSongsVC.swift; sourceTree = "<group>"; };
 		73444239250DC73600B33B35 /* ArtistInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoVC.swift; sourceTree = "<group>"; };
 		7344423B250DC7D800B33B35 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		735656A625254337001C2717 /* Top50Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50Cell.swift; sourceTree = "<group>"; };
 		735656AB25254355001C2717 /* SongTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTrackCell.swift; sourceTree = "<group>"; };
+		735657062525C220001C2717 /* ids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ids.swift; sourceTree = "<group>"; };
 		735972612512DB290036721C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL-Parameter-Extensions.swift"; sourceTree = "<group>"; };
 		8008FB6C5DF86C649465476B /* Pods_cantatioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cantatioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +148,6 @@
 				73444204250C70C400B33B35 /* Info.plist */,
 				73444231250DC26000B33B35 /* Models */,
 				73444232250DC29D00B33B35 /* Views */,
-				735656C725254AB4001C2717 /* Networking */,
 				73444233250DC66F00B33B35 /* Controllers */,
 				73444230250DC24700B33B35 /* Supporting Files */,
 				73444226250C8BC500B33B35 /* SpotifyiOS.framework */,
@@ -186,8 +185,8 @@
 		73444231250DC26000B33B35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				73444229250C982D00B33B35 /* ids.swift */,
 				734441FC250C70C300B33B35 /* cantatio.xcdatamodeld */,
+				735657062525C220001C2717 /* ids.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,13 +212,6 @@
 				73444239250DC73600B33B35 /* ArtistInfoVC.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		735656C725254AB4001C2717 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		DD7474ACD426A9340457C45E /* Pods */ = {
@@ -431,8 +423,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				735657072525C220001C2717 /* ids.swift in Sources */,
 				7344423A250DC73600B33B35 /* ArtistInfoVC.swift in Sources */,
-				7344422A250C982D00B33B35 /* ids.swift in Sources */,
 				734441FE250C70C300B33B35 /* cantatio.xcdatamodeld in Sources */,
 				7344423C250DC7D800B33B35 /* TabbarController.swift in Sources */,
 				735656AC25254355001C2717 /* SongTrackCell.swift in Sources */,

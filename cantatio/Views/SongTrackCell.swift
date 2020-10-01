@@ -82,11 +82,12 @@ class SongTrackCell: UITableViewCell {
             title.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 10),
             title.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
             
-            playButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -50),
-            playButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
+            favoriteButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -60),
+            favoriteButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
             
-            favoriteButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 10),
-            favoriteButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0)
+            playButton.leadingAnchor.constraint(equalTo: favoriteButton.trailingAnchor, constant: 10),
+            playButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            playButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0)
         ])
    
     }

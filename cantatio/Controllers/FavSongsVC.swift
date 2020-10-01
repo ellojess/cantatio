@@ -42,6 +42,7 @@ class FavSongsVC: UIViewController {
         tableView.dataSource = self
     }
     
+    
 }
 
 extension FavSongsVC: UITableViewDataSource, UITableViewDelegate {
@@ -52,6 +53,7 @@ extension FavSongsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SongTrackCell
         cell.selectionStyle = .none
+        cell.favoriteButton.isHidden = true
         return cell
     }
 }

@@ -11,6 +11,9 @@ import UIKit
 
 class Top50VC: UIViewController {
     
+    typealias JSONStandard = [String : AnyObject]
+    var posts = [Track]()
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,16 +43,52 @@ class Top50VC: UIViewController {
         tableView.dataSource = self
     }
     
+    func parseData(JSONData : Data) {
+        do {
+            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
+            if let tracks = readableJSON["tracks"] as? JSONStandard{
+                if let items = tracks["items"] as? [JSONStandard] {
+                    for i in 0..<items.count{
+                        let item = items[i]
+                        print(item)
+                        let name = item["name"] as! String
+                        let previewURL = item["preview_url"] as! String
+                        if let album = item["album"] as? JSONStandard{
+                            if let images = album["images"] as? [JSONStandard]{
+                                let imageData = images[0]
+                                let mainImageURL =  URL(string: imageData["url"] as! String)
+                                let mainImageData = NSData(contentsOf: mainImageURL!)
+                                
+                                let mainImage = UIImage(data: mainImageData! as Data)
+                                
+                                posts.append(Track.init(mainImage: mainImage, name: name, previewURL: previewURL))
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        catch{
+            print(error)
+        }
+    }
+
+    
 }
 
 extension Top50VC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return posts.count
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Top50Cell
         cell.accessoryType = .disclosureIndicator
+        
+//        let mainImageView = cell.albumImage as! UIImageView
+//        cell.albumImage.image = posts[indexPath.row].mainImage
         return cell
     }
     

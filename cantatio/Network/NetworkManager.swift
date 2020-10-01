@@ -48,35 +48,35 @@ class NetworkManager {
 //       })
 //    }
     
-    func parseData(JSONData : Data) {
-        do {
-            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
-            if let tracks = readableJSON["tracks"] as? JSONStandard{
-                if let items = tracks["items"] as? [JSONStandard] {
-                    for i in 0..<items.count{
-                        let item = items[i]
-                        print(item)
-                        let name = item["name"] as! String
-                        let previewURL = item["preview_url"] as! String
-                        if let album = item["album"] as? JSONStandard{
-                            if let images = album["images"] as? [JSONStandard]{
-                                let imageData = images[0]
-                                let mainImageURL =  URL(string: imageData["url"] as! String)
-                                let mainImageData = NSData(contentsOf: mainImageURL!)
-                                
-                                let mainImage = UIImage(data: mainImageData! as Data)
-                                
-                                posts.append(Track.init(mainImage: mainImage, name: name, previewURL: previewURL))
-//                                self.tableView.reloadData()
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        catch{
-            print(error)
-        }
-    }
+//    func parseData(JSONData : Data) {
+//        do {
+//            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
+//            if let tracks = readableJSON["tracks"] as? JSONStandard{
+//                if let items = tracks["items"] as? [JSONStandard] {
+//                    for i in 0..<items.count{
+//                        let item = items[i]
+//                        print(item)
+//                        let name = item["name"] as! String
+//                        let previewURL = item["preview_url"] as! String
+//                        if let album = item["album"] as? JSONStandard{
+//                            if let images = album["images"] as? [JSONStandard]{
+//                                let imageData = images[0]
+//                                let mainImageURL =  URL(string: imageData["url"] as! String)
+//                                let mainImageData = NSData(contentsOf: mainImageURL!)
+//
+//                                let mainImage = UIImage(data: mainImageData! as Data)
+//
+//                                posts.append(Track.init(mainImage: mainImage, name: name, previewURL: previewURL))
+////                                self.tableView.reloadData()
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        catch{
+//            print(error)
+//        }
+//    }
     
 }

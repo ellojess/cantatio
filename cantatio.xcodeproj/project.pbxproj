@@ -24,7 +24,6 @@
 		735656AC25254355001C2717 /* SongTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735656AB25254355001C2717 /* SongTrackCell.swift */; };
 		735657072525C220001C2717 /* ids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735657062525C220001C2717 /* ids.swift */; };
 		735657132525C55A001C2717 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735657122525C55A001C2717 /* NetworkManager.swift */; };
-		7356571B2525C594001C2717 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356571A2525C594001C2717 /* Track.swift */; };
 		735972622512DB290036721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735972612512DB290036721C /* Main.storyboard */; };
 		73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */; };
 		8BEC4A1E0FE2A0734B773888 /* Pods_cantatio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1481A2D1100C356D65C68EA1 /* Pods_cantatio.framework */; };
@@ -76,7 +75,6 @@
 		735656AB25254355001C2717 /* SongTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTrackCell.swift; sourceTree = "<group>"; };
 		735657062525C220001C2717 /* ids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ids.swift; sourceTree = "<group>"; };
 		735657122525C55A001C2717 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		7356571A2525C594001C2717 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		735972612512DB290036721C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL-Parameter-Extensions.swift"; sourceTree = "<group>"; };
 		8008FB6C5DF86C649465476B /* Pods_cantatioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cantatioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +190,6 @@
 			children = (
 				734441FC250C70C300B33B35 /* cantatio.xcdatamodeld */,
 				735657062525C220001C2717 /* ids.swift */,
-				7356571A2525C594001C2717 /* Track.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -450,7 +447,6 @@
 				73444235250DC6E800B33B35 /* Top50VC.swift in Sources */,
 				73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */,
 				734441F6250C70C300B33B35 /* SceneDelegate.swift in Sources */,
-				7356571B2525C594001C2717 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

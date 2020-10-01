@@ -15,6 +15,8 @@ class NetworkManager {
     // MARK: - Variables
     public static let shared = NetworkManager()
     let urlSession = URLSession.shared
+    static private let kAccessTokenKey = "access-token-key"
+    static private let kRefreshTokenKey = "refresh-token-key"
     
     typealias JSONStandard = [String : AnyObject]
     var posts = [Track]()
@@ -22,11 +24,19 @@ class NetworkManager {
     public static var authorizationToken: String?
     public static var loggingEnabled: Bool = true
     
+    static var accessToken = UserDefaults.standard.string(forKey: kAccessTokenKey) {
+        didSet {
+            let defaults = UserDefaults.standard
+            defaults.set(accessToken, forKey: NetworkManager.kAccessTokenKey)
+        }
+    }
     
-    var artistId = ""
-    
-    var refresh_token: String? = nil
-    
+    static var refreshToken = UserDefaults.standard.string(forKey: kRefreshTokenKey) {
+        didSet {
+            let defaults = UserDefaults.standard
+            defaults.set(accessToken, forKey: NetworkManager.kRefreshTokenKey)
+        }
+    }
     
     // Fetch Top 50 Artists
     static func fetchTopArtists(completion: @escaping (Result<[Artist], Error>) -> Void) {
@@ -40,13 +50,15 @@ class NetworkManager {
     }
     
     // Fetch Artist's Top Tracks
-//    static func fetchTopTracks(completion: @escaping (Result<[Artist], Error>) -> Void) {
-//        _ = Spartan.getArtistsTopTracks(artistId: artistId, country: .us, success: { (tracks) in
-//           // Do something with the tracks
-//       }, failure: { (error) in
-//           print(error)
-//       })
-//    }
+    static func fetchTopTracks(artistId: String, completion: @escaping (Result<[Artist], Error>) -> Void) {
+        _ = Spartan.getArtistsTopTracks(artistId: artistId, country: .us, success: { (tracks) in
+           // Do something with the tracks
+       }, failure: { (error) in
+           print(error)
+       })
+    }
+    
+    
     
 //    func parseData(JSONData : Data) {
 //        do {
@@ -78,5 +90,7 @@ class NetworkManager {
 //            print(error)
 //        }
 //    }
+    
+    
     
 }

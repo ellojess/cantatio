@@ -8,11 +8,17 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import AVFoundation
+
 
 class Top50VC: UIViewController {
     
     typealias JSONStandard = [String : AnyObject]
-    var posts = [Track]()
+    
+    var player = AVAudioPlayer()
+    var searchURL = String()
+    var names = [String]()
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -43,6 +49,13 @@ class Top50VC: UIViewController {
         tableView.dataSource = self
     }
     
+    func callAlamo(url : String){
+        Alamofire.request(url).responseJSON(completionHandler: {
+            response in
+            self.parseData(JSONData: response.data!)
+        })
+    }
+    
     func parseData(JSONData : Data) {
         do {
             var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
@@ -61,7 +74,7 @@ class Top50VC: UIViewController {
                                 
                                 let mainImage = UIImage(data: mainImageData! as Data)
                                 
-                                posts.append(Track.init(mainImage: mainImage, name: name, previewURL: previewURL))
+//                                posts.append(Track.init(mainImage: mainImage, name: name, previewURL: previewURL))
                                 self.tableView.reloadData()
                             }
                         }

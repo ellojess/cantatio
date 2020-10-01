@@ -22,17 +22,17 @@ SPTAppRemoteDelegate {
     lazy var appRemote: SPTAppRemote = {
         let configuration = SPTConfiguration(clientID: self.clientIdentifier, redirectURL: self.redirectUri)
         let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
-        appRemote.connectionParameters.accessToken = self.accessToken
+        appRemote.connectionParameters.accessToken = NetworkManager.accessToken
         appRemote.delegate = self
         return appRemote
     }()
 
-    var accessToken = UserDefaults.standard.string(forKey: kAccessTokenKey) {
-        didSet {
-            let defaults = UserDefaults.standard
-            defaults.set(accessToken, forKey: SceneDelegate.kAccessTokenKey)
-        }
-    }
+//    var accessToken = UserDefaults.standard.string(forKey: kAccessTokenKey) {
+//        didSet {
+//            let defaults = UserDefaults.standard
+//            defaults.set(accessToken, forKey: SceneDelegate.kAccessTokenKey)
+//        }
+//    }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -64,7 +64,7 @@ SPTAppRemoteDelegate {
 
         if let access_token = parameters?[SPTAppRemoteAccessTokenKey] {
             appRemote.connectionParameters.accessToken = access_token
-            self.accessToken = access_token
+            NetworkManager.accessToken = access_token
         } else if let _ = parameters?[SPTAppRemoteErrorDescriptionKey] {
             // Show the error
         }

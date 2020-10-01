@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class Top50Cell: UITableViewCell {
     
@@ -50,8 +51,8 @@ class Top50Cell: UITableViewCell {
             title.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
             
         ])
-   
     }
+    
     
 }
 

@@ -29,19 +29,28 @@ class Top50Cell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(title)
-        setupTitle()
+        setupCell()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupTitle() {
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        title.heightAnchor.constraint(equalToConstant: 80).isActive = true
+    func setupCell() {
+        contentView.addSubview(albumImage)
+        contentView.addSubview(title)
+        
+        NSLayoutConstraint.activate([
+            albumImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            albumImage.widthAnchor.constraint(equalToConstant: 20),
+            albumImage.heightAnchor.constraint(equalToConstant: 20),
+            albumImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            title.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 10),
+            title.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
+            
+        ])
+   
     }
     
 }

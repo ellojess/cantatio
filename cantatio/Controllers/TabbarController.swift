@@ -39,7 +39,7 @@ class TabbarController: UITabBarController, UITabBarControllerDelegate {
 
         let favoritesVC = FavSongsVC()
         let navController1 = UINavigationController(rootViewController:favoritesVC)
-        navController1.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_favorite"), tag: 0)
+        navController1.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "icon_favorite-filled"), tag: 0)
 
         let HomeVC = Top50VC()
         let navController2 = UINavigationController(rootViewController:HomeVC)

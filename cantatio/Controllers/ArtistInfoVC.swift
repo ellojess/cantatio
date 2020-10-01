@@ -22,6 +22,8 @@ class ArtistInfoVC: UIViewController {
         super.viewDidLoad()
         setUpTableView()
       
+        self.navigationItem.title = "Top Tracks"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setUpTableView(){

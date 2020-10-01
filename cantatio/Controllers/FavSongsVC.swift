@@ -22,6 +22,8 @@ class FavSongsVC: UIViewController {
         super.viewDidLoad()
         setUpTableView()
       
+        self.navigationItem.title = "Favorites"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setUpTableView(){

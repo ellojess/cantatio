@@ -24,6 +24,9 @@ class Top50VC: UIViewController {
         tableView.register(Top50Cell.self, forCellReuseIdentifier: "cell")
         view.backgroundColor = .orange
         setUpTableView()
+        
+        self.navigationItem.title = "Top 50 Artists"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setUpTableView(){

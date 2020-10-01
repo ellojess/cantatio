@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,8 @@
 		735656AC25254355001C2717 /* SongTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735656AB25254355001C2717 /* SongTrackCell.swift */; };
 		735972622512DB290036721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735972612512DB290036721C /* Main.storyboard */; };
 		73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */; };
+		8BEC4A1E0FE2A0734B773888 /* Pods_cantatio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1481A2D1100C356D65C68EA1 /* Pods_cantatio.framework */; };
+		95E9B6373AD1CC0B6E13701F /* Pods_cantatioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008FB6C5DF86C649465476B /* Pods_cantatioTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		133D419B18A743F7331E8DB1 /* Pods-cantatio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cantatio.release.xcconfig"; path = "Target Support Files/Pods-cantatio/Pods-cantatio.release.xcconfig"; sourceTree = "<group>"; };
+		1481A2D1100C356D65C68EA1 /* Pods_cantatio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cantatio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C91BF1654B62A9E692F0DB /* Pods-cantatio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cantatio.debug.xcconfig"; path = "Target Support Files/Pods-cantatio/Pods-cantatio.debug.xcconfig"; sourceTree = "<group>"; };
 		734441F0250C70C300B33B35 /* cantatio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cantatio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		734441F3250C70C300B33B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		734441F5250C70C300B33B35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +75,9 @@
 		735656AB25254355001C2717 /* SongTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTrackCell.swift; sourceTree = "<group>"; };
 		735972612512DB290036721C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL-Parameter-Extensions.swift"; sourceTree = "<group>"; };
+		8008FB6C5DF86C649465476B /* Pods_cantatioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cantatioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8130DC97CCC9B529B9AB9BCF /* Pods-cantatioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cantatioTests.release.xcconfig"; path = "Target Support Files/Pods-cantatioTests/Pods-cantatioTests.release.xcconfig"; sourceTree = "<group>"; };
+		C9B6CDB0545C5A939592C47A /* Pods-cantatioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cantatioTests.debug.xcconfig"; path = "Target Support Files/Pods-cantatioTests/Pods-cantatioTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73444227250C8BC500B33B35 /* SpotifyiOS.framework in Frameworks */,
+				8BEC4A1E0FE2A0734B773888 /* Pods_cantatio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E9B6373AD1CC0B6E13701F /* Pods_cantatioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1825A7512B52AA3B1B4FDDBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1481A2D1100C356D65C68EA1 /* Pods_cantatio.framework */,
+				8008FB6C5DF86C649465476B /* Pods_cantatioTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		734441E7250C70C300B33B35 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +125,8 @@
 				7344420C250C70C400B33B35 /* cantatioTests */,
 				73444217250C70C400B33B35 /* cantatioUITests */,
 				734441F1250C70C300B33B35 /* Products */,
+				DD7474ACD426A9340457C45E /* Pods */,
+				1825A7512B52AA3B1B4FDDBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +148,7 @@
 				73444204250C70C400B33B35 /* Info.plist */,
 				73444231250DC26000B33B35 /* Models */,
 				73444232250DC29D00B33B35 /* Views */,
+				735656C725254AB4001C2717 /* Networking */,
 				73444233250DC66F00B33B35 /* Controllers */,
 				73444230250DC24700B33B35 /* Supporting Files */,
 				73444226250C8BC500B33B35 /* SpotifyiOS.framework */,
@@ -193,6 +215,24 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		735656C725254AB4001C2717 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DD7474ACD426A9340457C45E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45C91BF1654B62A9E692F0DB /* Pods-cantatio.debug.xcconfig */,
+				133D419B18A743F7331E8DB1 /* Pods-cantatio.release.xcconfig */,
+				C9B6CDB0545C5A939592C47A /* Pods-cantatioTests.debug.xcconfig */,
+				8130DC97CCC9B529B9AB9BCF /* Pods-cantatioTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7344421D250C70C400B33B35 /* Build configuration list for PBXNativeTarget "cantatio" */;
 			buildPhases = (
+				090CE6313D21AB95E0BE6620 /* [CP] Check Pods Manifest.lock */,
 				734441EC250C70C300B33B35 /* Sources */,
 				734441ED250C70C300B33B35 /* Frameworks */,
 				734441EE250C70C300B33B35 /* Resources */,
+				1E48C88CEB5500A6CDD2577E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +259,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73444220250C70C400B33B35 /* Build configuration list for PBXNativeTarget "cantatioTests" */;
 			buildPhases = (
+				FBF1C27EC12797EF2D6B5B3F /* [CP] Check Pods Manifest.lock */,
 				73444205250C70C400B33B35 /* Sources */,
 				73444206250C70C400B33B35 /* Frameworks */,
 				73444207250C70C400B33B35 /* Resources */,
@@ -318,6 +361,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		090CE6313D21AB95E0BE6620 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cantatio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E48C88CEB5500A6CDD2577E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cantatio/Pods-cantatio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cantatio/Pods-cantatio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cantatio/Pods-cantatio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBF1C27EC12797EF2D6B5B3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cantatioTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		734441EC250C70C300B33B35 /* Sources */ = {
@@ -498,6 +605,7 @@
 		};
 		7344421E250C70C400B33B35 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45C91BF1654B62A9E692F0DB /* Pods-cantatio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +631,7 @@
 		};
 		7344421F250C70C400B33B35 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 133D419B18A743F7331E8DB1 /* Pods-cantatio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +657,7 @@
 		};
 		73444221250C70C400B33B35 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9B6CDB0545C5A939592C47A /* Pods-cantatioTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -570,6 +680,7 @@
 		};
 		73444222250C70C400B33B35 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8130DC97CCC9B529B9AB9BCF /* Pods-cantatioTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

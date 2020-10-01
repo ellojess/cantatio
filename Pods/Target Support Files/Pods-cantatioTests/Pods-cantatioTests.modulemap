@@ -1,0 +1,6 @@
+framework module Pods_cantatioTests {
+  umbrella header "Pods-cantatioTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,34 +8,32 @@
 
 import Foundation
 import UIKit
-import Alamofire
+import Spartan
 import AVFoundation
 
 
 class Top50VC: UIViewController {
     
     typealias JSONStandard = [String : AnyObject]
-    
     var player = AVAudioPlayer()
-    var searchURL = String()
-    var names = [String]()
+    var artists: [Artist] = []
     
-    let tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(Top50Cell.self, forCellReuseIdentifier: "cell")
         tableView.rowHeight = 100
+        tableView.delegate = self
+        tableView.dataSource = self
         return tableView
-        }()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        tableView.register(Top50Cell.self, forCellReuseIdentifier: "cell")
-        view.backgroundColor = .orange
         setUpTableView()
-        
         self.navigationItem.title = "Top 50 Artists"
         navigationController?.navigationBar.prefersLargeTitles = true
+        fetchTopArtists()
     }
     
     func setUpTableView(){
@@ -45,63 +43,46 @@ class Top50VC: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        tableView.delegate = self
-        tableView.dataSource = self
     }
     
-    func callAlamo(url : String){
-        Alamofire.request(url).responseJSON(completionHandler: {
-            response in
-            self.parseData(JSONData: response.data!)
-        })
-    }
-    
-    func parseData(JSONData : Data) {
-        do {
-            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
-            if let tracks = readableJSON["tracks"] as? JSONStandard{
-                if let items = tracks["items"] as? [JSONStandard] {
-                    for i in 0..<items.count{
-                        let item = items[i]
-                        print(item)
-                        let name = item["name"] as! String
-                        let previewURL = item["preview_url"] as! String
-                        if let album = item["album"] as? JSONStandard{
-                            if let images = album["images"] as? [JSONStandard]{
-                                let imageData = images[0]
-                                let mainImageURL =  URL(string: imageData["url"] as! String)
-                                let mainImageData = NSData(contentsOf: mainImageURL!)
-                                
-                                let mainImage = UIImage(data: mainImageData! as Data)
-                                
-//                                posts.append(Track.init(mainImage: mainImage, name: name, previewURL: previewURL))
-                                self.tableView.reloadData()
-                            }
-                        }
-                    }
-                }
+    func fetchTopArtists() {
+        NetworkManager.refreshAcessToken { (error) in
+            if let error = error{
+                print(error)
             }
-        }
-        catch{
-            print(error)
+            //            Spartan.getMe { (user) in
+            //                print(user.displayName)
+            //            } failure: { (error) in
+            //                print(error)
+            //            }
+            
+            _ = Spartan.getMyTopArtists(limit: 5, offset: 0, timeRange: .longTerm, success: { (pagingObject) in
+                // Get the artists via pagingObject.items
+                guard let fetchedArtists = pagingObject.items else { return }
+                for artist in fetchedArtists {
+                    self.artists.append(artist)
+                }
+                self.tableView.reloadData()
+            }, failure: { (error) in
+                print(error)
+            })
+            
         }
     }
-
+    
     
 }
 
 extension Top50VC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return posts.count
-        return 10
+        //        return 10
+        return artists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Top50Cell
         cell.accessoryType = .disclosureIndicator
-        
-//        let mainImageView = cell.albumImage as! UIImageView
-//        cell.albumImage.image = posts[indexPath.row].mainImage
+        cell.title.text = artists[indexPath.row].name
         return cell
     }
     

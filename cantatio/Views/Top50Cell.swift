@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 import Kingfisher
+import Spartan
 
 class Top50Cell: UITableViewCell {
+    
+    var networkManager = NetworkManager()
     
     var albumImage: UIImageView = {
         var image = UIImageView()
@@ -52,7 +55,7 @@ class Top50Cell: UITableViewCell {
             
         ])
     }
-    
+
     
 }
 

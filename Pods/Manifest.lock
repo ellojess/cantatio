@@ -5,9 +5,9 @@ PODS:
     - ObjectMapper (~> 3.4)
   - AlamoRecord (1.2.2):
     - AlamofireObjectMapper (~> 5.1)
-  - Kingfisher (5.15.0):
-    - Kingfisher/Core (= 5.15.0)
-  - Kingfisher/Core (5.15.0)
+  - Kingfisher (5.15.5):
+    - Kingfisher/Core (= 5.15.5)
+  - Kingfisher/Core (5.15.5)
   - NVActivityIndicatorView (5.0.1):
     - NVActivityIndicatorView/Base (= 5.0.1)
   - NVActivityIndicatorView/Base (5.0.1)
@@ -40,7 +40,7 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
   AlamoRecord: 5850c563a811fdca40cd361b1b27622004bccef3
-  Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
+  Kingfisher: e3ec347a5ab8817b7585ef46923a2d2b9a7d8fbe
   NVActivityIndicatorView: 738e843cb8924e9e4fc3e559d0728031624bf860
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb

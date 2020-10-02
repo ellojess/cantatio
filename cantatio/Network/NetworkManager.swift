@@ -126,7 +126,7 @@ class NetworkManager {
     }
     
     
-    static func refreshAcessToken(completion: @escaping (_ error: String?) -> Void) {
+    static func refreshAccessToken(completion: @escaping (_ error: String?) -> Void) {
         guard let refreshToken = refreshToken else {
             return completion("No refresh token")
         }

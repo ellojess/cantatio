@@ -46,7 +46,7 @@ class Top50VC: UIViewController {
     }
     
     func fetchTopArtists() {
-        NetworkManager.refreshAcessToken { (error) in
+        NetworkManager.refreshAccessToken { (error) in
             if let error = error{
                 print(error)
             }

@@ -17,6 +17,7 @@ class Top50VC: UIViewController {
     typealias JSONStandard = [String : AnyObject]
     var player = AVAudioPlayer()
     var artists: [Artist] = []
+    var tracks: [SimplifiedAlbum] = []
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -56,11 +57,22 @@ class Top50VC: UIViewController {
             //                print(error)
             //            }
             
-            _ = Spartan.getMyTopArtists(limit: 5, offset: 0, timeRange: .longTerm, success: { (pagingObject) in
-                // Get the artists via pagingObject.items
+//            _ = Spartan.getMyTopArtists(limit: 2, offset: 0, timeRange: .longTerm, success: { (pagingObject) in
+//                // Get the artists via pagingObject.items
+//                guard let fetchedArtists = pagingObject.items else { return }
+//                for artist in fetchedArtists {
+//                    self.artists.append(artist)
+//                }
+//                self.tableView.reloadData()
+//            }, failure: { (error) in
+//                print(error)
+            //            })
+            
+            _ = Spartan.getNewReleases(country: .us, limit: 20, offset: 0, success: { (pagingObject) in
+                // Get the albums via pagingObject.items
                 guard let fetchedArtists = pagingObject.items else { return }
-                for artist in fetchedArtists {
-                    self.artists.append(artist)
+                for track in fetchedArtists {
+                    self.tracks.append(track)
                 }
                 self.tableView.reloadData()
             }, failure: { (error) in
@@ -76,13 +88,15 @@ class Top50VC: UIViewController {
 extension Top50VC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        return 10
-        return artists.count
+//        return artists.count
+        return tracks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Top50Cell
         cell.accessoryType = .disclosureIndicator
-        cell.title.text = artists[indexPath.row].name
+//        cell.title.text = artists[indexPath.row].name
+        cell.title.text = tracks[indexPath.row].name
         return cell
     }
     

@@ -11,7 +11,7 @@ import UIKit
 
 class SongTrackCell: UITableViewCell {
     
-    var linkVC: FavSongsVC?
+    var link: ArtistInfoVC?
     
     var albumImage: UIImageView = {
         var image = UIImageView()
@@ -93,8 +93,11 @@ class SongTrackCell: UITableViewCell {
     }
     
     @objc func favTapped(){
+        link?.testingMethod(cell: self)
+//        link?.save()
+        
         if self.favoriteButton.currentImage == UIImage(named: "icon_favorite"){
-            
+            link?.save()
             UIView.animate(withDuration: 0.3,
             animations: {
                 self.favoriteButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)

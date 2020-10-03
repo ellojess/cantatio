@@ -25,7 +25,8 @@
 		735657072525C220001C2717 /* ids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735657062525C220001C2717 /* ids.swift */; };
 		735657132525C55A001C2717 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735657122525C55A001C2717 /* NetworkManager.swift */; };
 		735972622512DB290036721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735972612512DB290036721C /* Main.storyboard */; };
-		73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */; };
+		735EC77725280B15004E8B48 /* CoreData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735EC77625280B15004E8B48 /* CoreData+Extensions.swift */; };
+		73E7DBF225239D2800ED4E60 /* URL-Parameter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DBF125239D2800ED4E60 /* URL-Parameter+Extensions.swift */; };
 		8BEC4A1E0FE2A0734B773888 /* Pods_cantatio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1481A2D1100C356D65C68EA1 /* Pods_cantatio.framework */; };
 		95E9B6373AD1CC0B6E13701F /* Pods_cantatioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8008FB6C5DF86C649465476B /* Pods_cantatioTests.framework */; };
 /* End PBXBuildFile section */
@@ -76,7 +77,8 @@
 		735657062525C220001C2717 /* ids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ids.swift; sourceTree = "<group>"; };
 		735657122525C55A001C2717 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		735972612512DB290036721C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL-Parameter-Extensions.swift"; sourceTree = "<group>"; };
+		735EC77625280B15004E8B48 /* CoreData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Extensions.swift"; sourceTree = "<group>"; };
+		73E7DBF125239D2800ED4E60 /* URL-Parameter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL-Parameter+Extensions.swift"; sourceTree = "<group>"; };
 		8008FB6C5DF86C649465476B /* Pods_cantatioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cantatioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8130DC97CCC9B529B9AB9BCF /* Pods-cantatioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cantatioTests.release.xcconfig"; path = "Target Support Files/Pods-cantatioTests/Pods-cantatioTests.release.xcconfig"; sourceTree = "<group>"; };
 		C9B6CDB0545C5A939592C47A /* Pods-cantatioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cantatioTests.debug.xcconfig"; path = "Target Support Files/Pods-cantatioTests/Pods-cantatioTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,7 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				734441FF250C70C400B33B35 /* Assets.xcassets */,
-				73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */,
+				73E7DBF125239D2800ED4E60 /* URL-Parameter+Extensions.swift */,
+				735EC77625280B15004E8B48 /* CoreData+Extensions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -442,10 +445,11 @@
 				735656AC25254355001C2717 /* SongTrackCell.swift in Sources */,
 				734441F8250C70C300B33B35 /* AuthVC.swift in Sources */,
 				73444237250DC71100B33B35 /* FavSongsVC.swift in Sources */,
+				735EC77725280B15004E8B48 /* CoreData+Extensions.swift in Sources */,
 				735656A725254337001C2717 /* Top50Cell.swift in Sources */,
 				734441F4250C70C300B33B35 /* AppDelegate.swift in Sources */,
 				73444235250DC6E800B33B35 /* Top50VC.swift in Sources */,
-				73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */,
+				73E7DBF225239D2800ED4E60 /* URL-Parameter+Extensions.swift in Sources */,
 				734441F6250C70C300B33B35 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

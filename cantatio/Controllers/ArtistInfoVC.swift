@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ArtistInfoVC: UIViewController {
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -42,6 +45,22 @@ class ArtistInfoVC: UIViewController {
         tableView.dataSource = self
     }
     
+    // testing custom delegation
+    func testingMethod(cell: UITableViewCell) {
+        print("inside artistInfoVC")
+        let indexPathTapped = tableView.indexPath(for: cell)
+        print(indexPathTapped)
+    }
+    
+    // Save to CoreData 
+    func save() {
+        do {
+            try context.save()
+        } catch {
+            print("error saving \(error)")
+        }
+    }
+    
 }
 
 extension ArtistInfoVC: UITableViewDataSource, UITableViewDelegate {
@@ -52,6 +71,7 @@ extension ArtistInfoVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SongTrackCell
         cell.selectionStyle = .none
+        cell.link = self
         return cell
     }
 }

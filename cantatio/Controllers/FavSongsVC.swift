@@ -11,6 +11,9 @@ import UIKit
 
 class FavSongsVC: UIViewController {
     
+    // mock data
+    var mockData = ["do", "re", "me"]
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,13 +50,15 @@ class FavSongsVC: UIViewController {
 
 extension FavSongsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+//        return 5
+        return mockData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SongTrackCell
         cell.selectionStyle = .none
         cell.favoriteButton.isHidden = true
+        cell.title.text = mockData[indexPath.row]
         return cell
     }
 }

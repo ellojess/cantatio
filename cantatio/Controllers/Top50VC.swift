@@ -17,6 +17,7 @@ class Top50VC: UIViewController {
     typealias JSONStandard = [String : AnyObject]
     var player = AVAudioPlayer()
     var artists: [Artist] = []
+    var network = NetworkManager()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -33,7 +34,8 @@ class Top50VC: UIViewController {
         setUpTableView()
         self.navigationItem.title = "Top 50 Artists"
         navigationController?.navigationBar.prefersLargeTitles = true
-        fetchTopArtists()
+        fetchArtists()
+        print(artists)
     }
     
     func setUpTableView(){
@@ -45,28 +47,16 @@ class Top50VC: UIViewController {
         
     }
     
-    func fetchTopArtists() {
-        NetworkManager.refreshAccessToken { (error) in
-            if let error = error{
-                print(error)
-            }
-            //            Spartan.getMe { (user) in
-            //                print(user.displayName)
-            //            } failure: { (error) in
-            //                print(error)
-            //            }
+    func fetchArtists() {
+        NetworkManager.fetchTopArtists() { (result) in
             
-            _ = Spartan.getMyTopArtists(limit: 5, offset: 0, timeRange: .longTerm, success: { (pagingObject) in
-                // Get the artists via pagingObject.items
-                guard let fetchedArtists = pagingObject.items else { return }
-                for artist in fetchedArtists {
-                    self.artists.append(artist)
-                }
+            switch result{
+            case .failure(let error):
+                print(error)
+            case .success(let artists):
+                self.artists = artists
                 self.tableView.reloadData()
-            }, failure: { (error) in
-                print(error)
-            })
-            
+            }
         }
     }
     

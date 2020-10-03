@@ -66,22 +66,21 @@ class NetworkManager {
         
         _ = Spartan.getMyTopArtists(limit: 50, offset: 0, timeRange: .mediumTerm, success: { (pagingObject) in
             completion(.success(pagingObject.items))
-            
+
         }, failure: { (error) in
             completion(.failure(error))
         })
     }
-    
-    
+
+
     // Fetch Artist's Top Tracks
-    static func fetchTopTracks(artistId: String, completion: @escaping (Result<[Artist], Error>) -> Void) {
-        _ = Spartan.getArtistsTopTracks(artistId: artistId, country: .us, success: { (tracks) in
-            // Do something with the tracks
+    static func fetchArtistTopTracks(artistId : String, completion: @escaping (Result<[Track], Error>) -> Void ){
+         _ = Spartan.getArtistsTopTracks(artistId: artistId, country: .us, success: { (tracks) in
+            completion(.success(tracks))
         }, failure: { (error) in
-            print(error)
+            completion(.failure(error))
         })
     }
-    
     
     // Fetch accessToken from Spotify
     static func fetchAccessToken(authCode: String, completion: @escaping (_ error: String?) -> Void) {
@@ -93,7 +92,7 @@ class NetworkManager {
         request.allHTTPHeaderFields = ["Authorization": authorizationValue,
                                        "Content-Type": "application/x-www-form-urlencoded"]
         var requestBodyComponents = URLComponents()
-        let scopeAsString = stringScopes.joined(separator: " ") //put array to string separated by whitespace
+        let scopeAsString = stringScopes.joined(separator: " ") 
         requestBodyComponents.queryItems = [
             URLQueryItem(name: "client_id", value: clientId),
             URLQueryItem(name: "grant_type", value: "authorization_code"),

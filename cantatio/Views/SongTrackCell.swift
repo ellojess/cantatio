@@ -36,6 +36,7 @@ class SongTrackCell: UITableViewCell {
         button.setImage(UIImage(named: "icon_play"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(playPauseTapped), for: .touchDown)
         return button
     }()
     
@@ -59,8 +60,6 @@ class SongTrackCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
-        favoriteButton.addTarget(self, action: #selector(favTapped), for: .touchDown)
-        playButton.addTarget(self, action: #selector(playPauseTapped), for: .touchDown)
     }
     
     required init?(coder: NSCoder) {

@@ -47,7 +47,6 @@ class SongTrackCell: UITableViewCell {
         button.setImage(UIImage(named: "icon_play"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(playPauseTapped), for: .touchDown)
         return button
     }()
     
@@ -56,7 +55,6 @@ class SongTrackCell: UITableViewCell {
         button.setImage(UIImage(named: "icon_pause"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(playPauseTapped), for: .touchDown)
         return button
     }()
     
@@ -111,7 +109,10 @@ class SongTrackCell: UITableViewCell {
         stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 16/15).isActive = true
         
         stackView.addArrangedSubview(favoriteButton)
+        favoriteButton.addTarget(self, action: #selector(favTapped), for: .touchDown)
+        
         stackView.addArrangedSubview(playButton)
+        playButton.addTarget(self, action: #selector(playPauseTapped), for: .touchDown)
     }
     
     @objc func favTapped(){
@@ -147,6 +148,9 @@ class SongTrackCell: UITableViewCell {
             })
             
             self.playButton.setImage(UIImage(named: "icon_pause"), for: .normal)
+            
+            
+            
         } else {
             self.playButton.setImage(UIImage(named: "icon_play"), for: .normal)
         }

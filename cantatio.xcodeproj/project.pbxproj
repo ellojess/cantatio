@@ -23,6 +23,7 @@
 		735656A725254337001C2717 /* Top50Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735656A625254337001C2717 /* Top50Cell.swift */; };
 		735656AC25254355001C2717 /* SongTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735656AB25254355001C2717 /* SongTrackCell.swift */; };
 		735657132525C55A001C2717 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735657122525C55A001C2717 /* NetworkManager.swift */; };
+		7356A3CE252E24DF0076DB7B /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356A3CD252E24DF0076DB7B /* AudioController.swift */; };
 		735972622512DB290036721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735972612512DB290036721C /* Main.storyboard */; };
 		735FAB85252901DC007F6FAE /* ids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FAB84252901DC007F6FAE /* ids.swift */; };
 		73E7DBF225239D2800ED4E60 /* URL-Parameter-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */; };
@@ -74,6 +75,7 @@
 		735656A625254337001C2717 /* Top50Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50Cell.swift; sourceTree = "<group>"; };
 		735656AB25254355001C2717 /* SongTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTrackCell.swift; sourceTree = "<group>"; };
 		735657122525C55A001C2717 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7356A3CD252E24DF0076DB7B /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		735972612512DB290036721C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		735FAB84252901DC007F6FAE /* ids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ids.swift; sourceTree = "<group>"; };
 		73E7DBF125239D2800ED4E60 /* URL-Parameter-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL-Parameter-Extensions.swift"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				73444234250DC6E800B33B35 /* Top50VC.swift */,
 				73444236250DC71100B33B35 /* FavSongsVC.swift */,
 				73444239250DC73600B33B35 /* ArtistInfoVC.swift */,
+				7356A3CD252E24DF0076DB7B /* AudioController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7356A3CE252E24DF0076DB7B /* AudioController.swift in Sources */,
 				735FAB85252901DC007F6FAE /* ids.swift in Sources */,
 				7344423A250DC73600B33B35 /* ArtistInfoVC.swift in Sources */,
 				734441FE250C70C300B33B35 /* cantatio.xcdatamodeld in Sources */,

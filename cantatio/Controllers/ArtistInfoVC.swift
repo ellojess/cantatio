@@ -17,6 +17,8 @@ class ArtistInfoVC: UIViewController {
     var artistID = ""
     var songs:[Track] = []
     
+    var audioPlayer = AVAudioPlayer()
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +66,6 @@ class ArtistInfoVC: UIViewController {
         }
     }
     
-    
 }
 
 extension ArtistInfoVC: UITableViewDataSource, UITableViewDelegate {
@@ -77,9 +78,18 @@ extension ArtistInfoVC: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         
         let urlString = songs[indexPath.row].album.images.first?.url
+//        print("HELLOOOOO URL STRING \(urlString)")
         let url = URL(string: urlString!)
         cell.albumImage.kf.setImage(with: url)
         cell.title.text = songs[indexPath.row].name
+        
+        
+        guard let songURL = songs[indexPath.row].previewUrl else{
+              cell.playButton.isEnabled = false
+              return cell
+            }
+        cell.songURL = songURL
+        cell.playButton.isEnabled = true
         
         return cell
     }

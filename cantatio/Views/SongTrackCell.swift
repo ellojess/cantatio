@@ -8,12 +8,15 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class SongTrackCell: UITableViewCell {
     
     var linkVC: FavSongsVC?
     
     var songURL = ""
+    
+    var audioPlayer = AudioController.shared
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -115,6 +118,10 @@ class SongTrackCell: UITableViewCell {
         playButton.addTarget(self, action: #selector(playPauseTapped), for: .touchDown)
     }
     
+    func playSong() {
+        
+    }
+    
     @objc func favTapped(){
         if self.favoriteButton.currentImage == UIImage(named: "icon_favorite"){
             
@@ -149,8 +156,10 @@ class SongTrackCell: UITableViewCell {
             
             self.playButton.setImage(UIImage(named: "icon_pause"), for: .normal)
             
+            audioPlayer.downloadFileFromURL(url: URL(string: songURL)!)
             
-            
+
+            print("HELLO \(songURL)")
         } else {
             self.playButton.setImage(UIImage(named: "icon_play"), for: .normal)
         }

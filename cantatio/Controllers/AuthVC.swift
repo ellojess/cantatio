@@ -41,6 +41,10 @@ class AuthVC: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate,
     lazy var appRemote: SPTAppRemote = {
         let configuration = SPTConfiguration(clientID: clientId, redirectURL: URL.init(string: redirect)!)
         let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
+        
+        let requestedScopes: SPTScope = [.appRemoteControl, .userTopRead]
+        self.sessionManager.initiateSession(with: requestedScopes, options: .default)
+        
         appRemote.connectionParameters.accessToken = NetworkManager.accessToken
         appRemote.delegate = self
         return appRemote

@@ -74,8 +74,8 @@ class SongTrackCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             albumImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            albumImage.widthAnchor.constraint(equalToConstant: 20),
-            albumImage.heightAnchor.constraint(equalToConstant: 20),
+            albumImage.widthAnchor.constraint(equalToConstant: 80),
+            albumImage.heightAnchor.constraint(equalToConstant: 80),
             albumImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             title.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 10),

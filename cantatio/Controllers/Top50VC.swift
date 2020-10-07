@@ -66,8 +66,7 @@ class Top50VC: UIViewController {
         }
     }
     
-    
-    
+
     
 }
 
@@ -101,6 +100,7 @@ extension Top50VC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected item in row \(indexPath.row)")
         let nextView: ArtistInfoVC = ArtistInfoVC()
+        nextView.artistID = artists[indexPath.row].id as! String
         self.navigationController?.pushViewController(nextView, animated: true)
     }
     

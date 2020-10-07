@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Spartan
 import AVFoundation
+import Kingfisher
 
 
 class Top50VC: UIViewController {
@@ -51,19 +52,21 @@ class Top50VC: UIViewController {
         
 //        NetworkManager.fetchNewReleases()
         
-        NetworkManager.getUser()
+//        NetworkManager.getUser()
         
-//        NetworkManager.fetchTopArtists() { (result) in
-//
-//            switch result{
-//            case .failure(let error):
-//                print(error)
-//            case .success(let artists):
-//                self.artists = artists
-//                self.tableView.reloadData()
-//            }
-//        }
+        NetworkManager.fetchTopArtists() { (result) in
+
+            switch result{
+            case .failure(let error):
+                print(error)
+            case .success(let artists):
+                self.artists = artists
+                self.tableView.reloadData()
+            }
+        }
     }
+    
+    
     
     
 }
@@ -77,8 +80,22 @@ extension Top50VC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Top50Cell
         cell.accessoryType = .disclosureIndicator
-        cell.title.text = artists[indexPath.row].name
+        
+        let urlString = artists[indexPath.row].images.first?.url
+        let url = URL(string: urlString!)
+        cell.imageView?.kf.setImage(with: url, options: []) { result in
+            switch result{
+            case .success(let value):
+                DispatchQueue.main.async{
+                    cell.imageView?.image = value.image
+                    cell.textLabel?.text = self.artists[indexPath.row].name
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

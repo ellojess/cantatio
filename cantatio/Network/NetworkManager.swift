@@ -66,16 +66,71 @@ class NetworkManager {
         
         _ = Spartan.getMyTopArtists(limit: 50, offset: 0, timeRange: .mediumTerm, success: { (pagingObject) in
             completion(.success(pagingObject.items))
-
+            
         }, failure: { (error) in
             completion(.failure(error))
         })
     }
-
-
+    
+    static func fetchNewReleases(){
+        _ = Spartan.getNewReleases(country: .us, limit: 20, offset: 0, success: { (pagingObject) in
+            if let items = pagingObject.items{
+                items.forEach(){
+                    print($0.name)
+                }
+            }
+        }, failure: { (error) in
+            print(error)
+        })
+    }
+    
+    
+    static func getUser(){
+        let url = URL(string: "https://api.spotify.com/v1/me/top/artists")!
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(Spartan.authorizationToken!)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                  let response = response as? HTTPURLResponse,
+                  error == nil else {
+                print("error", error ?? "Unknown error")
+                return
+            }
+            
+            if response.statusCode == 401 || response.statusCode == 403 {
+                refreshAccessToken { (error) in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+                    print("success, got \(refreshToken)")
+                    
+                }
+            }
+        
+            guard (200 ... 299) ~= response.statusCode else {
+                print("status code  \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+            do {
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
+                print(jsonResult!)
+            }
+            catch let error as NSError {
+                print(error.debugDescription)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    
     // Fetch Artist's Top Tracks
     static func fetchArtistTopTracks(artistId : String, completion: @escaping (Result<[Track], Error>) -> Void ){
-         _ = Spartan.getArtistsTopTracks(artistId: artistId, country: .us, success: { (tracks) in
+        _ = Spartan.getArtistsTopTracks(artistId: artistId, country: .us, success: { (tracks) in
             completion(.success(tracks))
         }, failure: { (error) in
             completion(.failure(error))
@@ -111,12 +166,12 @@ class NetworkManager {
             }
             
             do {
-                if let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any] {
+                if let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary {
                     guard let accessToken = jsonResult["access_token"] as? String else { return }
                     self.accessToken = accessToken
                     self.refreshToken = jsonResult["refresh_token"] as? String
                     Spartan.authorizationToken = accessToken
-                    completion(nil)
+                    return completion(nil)
                 }
                 return completion("failed decode")
             }
@@ -155,13 +210,17 @@ class NetworkManager {
                     // update refresh token
                     self.refreshToken = jsonResult["access_token"] as? String
                     Spartan.authorizationToken = jsonResult["access_token"] as? String
-                    completion(nil)
+                    return completion(nil)
                 }
-                completion("Failed to decode data")
+                return completion("Failed to decode data")
             }
         }
         task.resume()
     }
+    
+    //    static func fetchRefreshToken() {
+    //        var baseURL = "https://accounts.spotify.com/api/token"
+    //    }
     
     
 }

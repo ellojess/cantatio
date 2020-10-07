@@ -48,16 +48,21 @@ class Top50VC: UIViewController {
     }
     
     func fetchArtists() {
-        NetworkManager.fetchTopArtists() { (result) in
-            
-            switch result{
-            case .failure(let error):
-                print(error)
-            case .success(let artists):
-                self.artists = artists
-                self.tableView.reloadData()
-            }
-        }
+        
+//        NetworkManager.fetchNewReleases()
+        
+        NetworkManager.getUser()
+        
+//        NetworkManager.fetchTopArtists() { (result) in
+//
+//            switch result{
+//            case .failure(let error):
+//                print(error)
+//            case .success(let artists):
+//                self.artists = artists
+//                self.tableView.reloadData()
+//            }
+//        }
     }
     
     

@@ -13,6 +13,17 @@ class SongTrackCell: UITableViewCell {
     
     var linkVC: FavSongsVC?
     
+    var songURL = ""
+    
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 12
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
     var albumImage: UIImageView = {
         var image = UIImageView()
         image.layer.cornerRadius = 10
@@ -45,6 +56,7 @@ class SongTrackCell: UITableViewCell {
         button.setImage(UIImage(named: "icon_pause"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(playPauseTapped), for: .touchDown)
         return button
     }()
     
@@ -67,28 +79,39 @@ class SongTrackCell: UITableViewCell {
     }
     
     func setupCell() {
-        contentView.addSubview(albumImage)
-        contentView.addSubview(title)
-        contentView.addSubview(playButton)
-        contentView.addSubview(favoriteButton)
         
-        NSLayoutConstraint.activate([
-            albumImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            albumImage.widthAnchor.constraint(equalToConstant: 80),
-            albumImage.heightAnchor.constraint(equalToConstant: 80),
-            albumImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            title.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 10),
-            title.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
-            
-            favoriteButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -60),
-            favoriteButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
-            
-            playButton.leadingAnchor.constraint(equalTo: favoriteButton.trailingAnchor, constant: 10),
-            playButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            playButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0)
-        ])
-   
+        contentView.addSubview(title)
+        contentView.addSubview(albumImage)
+        contentView.addSubview(stackView)
+        setUpImage()
+        setUpTitle()
+        setupButtons()
+    }
+    
+    func setUpTitle() {
+        
+        title.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        title.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -12).isActive = true
+        title.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 10).isActive = true
+        title.heightAnchor.constraint(equalToConstant: 80).isActive = true
+    }
+    
+    func setUpImage() {
+        albumImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        albumImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        albumImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        albumImage.widthAnchor.constraint(equalTo: albumImage.heightAnchor, multiplier: 16/15).isActive = true
+        
+    }
+    
+    func setupButtons() {
+        stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 16/15).isActive = true
+        
+        stackView.addArrangedSubview(favoriteButton)
+        stackView.addArrangedSubview(playButton)
     }
     
     @objc func favTapped(){

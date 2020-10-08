@@ -9,16 +9,14 @@
 import Foundation
 import UIKit
 import Spartan
-import AVFoundation
 import Kingfisher
 
 
 class Top50VC: UIViewController {
     
     typealias JSONStandard = [String : AnyObject]
-    var player = AVAudioPlayer()
+    
     var artists: [Artist] = []
-    var network = NetworkManager()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -49,13 +47,7 @@ class Top50VC: UIViewController {
     }
     
     func fetchArtists() {
-        
-//        NetworkManager.fetchNewReleases()
-        
-//        NetworkManager.getUser()
-        
         NetworkManager.fetchTopArtists() { (result) in
-
             switch result{
             case .failure(let error):
                 print(error)
@@ -72,7 +64,6 @@ class Top50VC: UIViewController {
 
 extension Top50VC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return 10
         return artists.count
     }
     
@@ -83,12 +74,15 @@ extension Top50VC: UITableViewDataSource, UITableViewDelegate {
         let urlString = artists[indexPath.row].images.first?.url
         let url = URL(string: urlString!)
         cell.imageView?.kf.setImage(with: url, options: []) { result in
+            
             switch result{
             case .success(let value):
+                
                 DispatchQueue.main.async{
                     cell.imageView?.image = value.image
                     cell.textLabel?.text = self.artists[indexPath.row].name
                 }
+                
             case .failure(let error):
                 print(error)
             }

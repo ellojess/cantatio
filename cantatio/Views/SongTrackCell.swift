@@ -9,14 +9,17 @@
 import Foundation
 import UIKit
 import AVFoundation
+import Spartan
 
 class SongTrackCell: UITableViewCell {
     
     var linkVC: FavSongsVC?
-    
     var songURL = ""
-    
     var audioPlayer = AudioController.shared
+    let userDefaults = UserDefaults.standard
+    var favoritedSongs = [String]()
+    var songs = [Track]()
+    var artistID = ""
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -73,6 +76,7 @@ class SongTrackCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
+        UserDefaults.standard
     }
     
     required init?(coder: NSCoder) {
@@ -80,7 +84,6 @@ class SongTrackCell: UITableViewCell {
     }
     
     func setupCell() {
-        
         contentView.addSubview(title)
         contentView.addSubview(albumImage)
         contentView.addSubview(stackView)
@@ -90,7 +93,6 @@ class SongTrackCell: UITableViewCell {
     }
     
     func setUpTitle() {
-        
         title.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         title.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -12).isActive = true
         title.leadingAnchor.constraint(equalTo: albumImage.trailingAnchor, constant: 10).isActive = true
@@ -102,7 +104,6 @@ class SongTrackCell: UITableViewCell {
         albumImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         albumImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
         albumImage.widthAnchor.constraint(equalTo: albumImage.heightAnchor, multiplier: 16/15).isActive = true
-        
     }
     
     func setupButtons() {
@@ -117,10 +118,7 @@ class SongTrackCell: UITableViewCell {
         stackView.addArrangedSubview(playButton)
         playButton.addTarget(self, action: #selector(playPauseTapped), for: .touchDown)
     }
-    
-    func playSong() {
-        
-    }
+
     
     @objc func favTapped(){
         if self.favoriteButton.currentImage == UIImage(named: "icon_favorite"){
@@ -134,16 +132,25 @@ class SongTrackCell: UITableViewCell {
                     self.favoriteButton.transform = CGAffineTransform.identity
                 }
             })
-            
             self.favoriteButton.setImage(UIImage(named: "icon_favorite-filled"), for: .normal)
+            
+            // save song in user defaults if favorited
+            favoritedSongs.append(artistID)
+            UserDefaults.standard.set(self.favoritedSongs, forKey: "favorited")
+            
         } else {
             self.favoriteButton.setImage(UIImage(named: "icon_favorite"), for: .normal)
+            
+            // remove song from user defaults
+            UserDefaults.standard.removeObject(forKey: "favorited")
         }
     }
+    
     
     @objc func playPauseTapped(){
         if self.playButton.currentImage == UIImage(named: "icon_play"){
             
+            // animate play button
             UIView.animate(withDuration: 0.3,
             animations: {
                 self.playButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -153,15 +160,15 @@ class SongTrackCell: UITableViewCell {
                     self.playButton.transform = CGAffineTransform.identity
                 }
             })
-            
             self.playButton.setImage(UIImage(named: "icon_pause"), for: .normal)
             
+            // play song from url when pay button is clicked
             audioPlayer.downloadFileFromURL(url: URL(string: songURL)!)
             
-
-            print("HELLO \(songURL)")
         } else {
+            // if button is pressed again, pause song and change image to pause
             self.playButton.setImage(UIImage(named: "icon_play"), for: .normal)
+            audioPlayer.pause()
         }
     }
     

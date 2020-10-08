@@ -71,6 +71,9 @@ extension Top50VC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Top50Cell
         cell.accessoryType = .disclosureIndicator
         
+        let nextView: ArtistInfoVC = ArtistInfoVC()
+        nextView.artistID = artists[indexPath.row].id as! String
+        
         let urlString = artists[indexPath.row].images.first?.url
         let url = URL(string: urlString!)
         cell.imageView?.kf.setImage(with: url, options: []) { result in
@@ -95,6 +98,7 @@ extension Top50VC: UITableViewDataSource, UITableViewDelegate {
         print("selected item in row \(indexPath.row)")
         let nextView: ArtistInfoVC = ArtistInfoVC()
         nextView.artistID = artists[indexPath.row].id as! String
+        print(artists[indexPath.row].id)
         self.navigationController?.pushViewController(nextView, animated: true)
     }
     

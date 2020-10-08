@@ -213,8 +213,8 @@
 				734441F7250C70C300B33B35 /* AuthVC.swift */,
 				7344423B250DC7D800B33B35 /* TabbarController.swift */,
 				73444234250DC6E800B33B35 /* Top50VC.swift */,
-				73444236250DC71100B33B35 /* FavSongsVC.swift */,
 				73444239250DC73600B33B35 /* ArtistInfoVC.swift */,
+				73444236250DC71100B33B35 /* FavSongsVC.swift */,
 				7356A3CD252E24DF0076DB7B /* AudioController.swift */,
 			);
 			path = Controllers;

@@ -16,6 +16,7 @@ class ArtistInfoVC: UIViewController {
     
     var artistID = ""
     var songs:[Track] = []
+    var favoritedSongs = [String]()
     
     var audioPlayer = AVAudioPlayer()
     
@@ -76,13 +77,13 @@ extension ArtistInfoVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SongTrackCell
         cell.selectionStyle = .none
-        
-        let urlString = songs[indexPath.row].album.images.first?.url
+        let song = songs[indexPath.row]
+        let urlString = song.album.images.first?.url
 //        print("HELLOOOOO URL STRING \(urlString)")
         let url = URL(string: urlString!)
         cell.albumImage.kf.setImage(with: url)
         cell.title.text = songs[indexPath.row].name
-        
+        cell.songID = songs[indexPath.row].id as! String
         
         guard let songURL = songs[indexPath.row].previewUrl else{
               cell.playButton.isEnabled = false
@@ -90,6 +91,20 @@ extension ArtistInfoVC: UITableViewDataSource, UITableViewDelegate {
             }
         cell.songURL = songURL
         cell.playButton.isEnabled = true
+        
+        // get favorited tracks from user defaults from each cell
+        // .contains() to see if it exists
+        //  if song is in songID then change image to filled-heart
+        
+        guard let songID = self.songs[indexPath.row].id else {
+            return cell
+        }
+        
+        if self.favoritedSongs.contains(songID as! String) {
+            cell.favoriteButton.setImage(UIImage(named: "icon_favorite"), for: .normal)
+        }
+        
+        UserDefaults.standard.setValue(self.favoritedSongs, forKey: "favorited")
         
         return cell
     }

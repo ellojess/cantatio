@@ -17,9 +17,10 @@ class SongTrackCell: UITableViewCell {
     var songURL = ""
     var audioPlayer = AudioController.shared
     let userDefaults = UserDefaults.standard
-    var favoritedSongs = [String]()
     var songs = [Track]()
-    var artistID = ""
+    var songID =  String()
+    var favoritedSongs = [String]()
+    
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -76,7 +77,6 @@ class SongTrackCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
-        UserDefaults.standard
     }
     
     required init?(coder: NSCoder) {
@@ -134,9 +134,19 @@ class SongTrackCell: UITableViewCell {
             })
             self.favoriteButton.setImage(UIImage(named: "icon_favorite-filled"), for: .normal)
             
+            var favoritedSongs = [String]()
+            
             // save song in user defaults if favorited
-            favoritedSongs.append(artistID)
-            UserDefaults.standard.set(self.favoritedSongs, forKey: "favorited")
+            if var favoritedSongs = userDefaults.stringArray(forKey: "favorited") {
+                print("YAY \(favoritedSongs)")
+                favoritedSongs.append(songID)
+                print("aritst ID \(songID)")
+                userDefaults.set(favoritedSongs, forKey: "favorited")
+            } else { //create a new list
+                
+            }
+        
+            print(favoritedSongs)
             
         } else {
             self.favoriteButton.setImage(UIImage(named: "icon_favorite"), for: .normal)

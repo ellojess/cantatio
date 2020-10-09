@@ -31,6 +31,7 @@ class FavSongsVC: UIViewController {
       
         self.navigationItem.title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
+        fetchSongs()
     }
     
     func setUpTableView(){
@@ -47,6 +48,18 @@ class FavSongsVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func fetchSongs() {
+        NetworkManager.fetchSong(trackIds: favoritedSongs) { (result) in
+            switch result{
+            case .failure(let error):
+                print(error)
+            case .success(let songs):
+                self.songs = songs
+                self.tableView.reloadData()
+            }
+        }
     }
     
     
@@ -77,6 +90,23 @@ extension FavSongsVC: UITableViewDataSource, UITableViewDelegate {
         cell.songURL = songURL
         cell.playButton.isEnabled = true
         
+//        return cell
+        
+    
+        cell.imageView?.kf.setImage(with: url, options: [], completionHandler:  { result in
+            
+            switch result{
+            case .success(let value):
+                
+                DispatchQueue.main.async{
+                    cell.imageView?.image = value.image
+                    cell.textLabel?.text = self.songs[indexPath.row].name
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        })
         return cell
         
     }

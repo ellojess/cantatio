@@ -72,6 +72,7 @@ class NetworkManager {
         })
     }
     
+    // Fetch New Released Songs
     static func fetchNewReleases(){
         _ = Spartan.getNewReleases(country: .us, limit: 20, offset: 0, success: { (pagingObject) in
             if let items = pagingObject.items{
@@ -81,6 +82,16 @@ class NetworkManager {
             }
         }, failure: { (error) in
             print(error)
+        })
+    }
+    
+    // Fetch Songs by ID of Song
+    static func fetchSong(trackIds: [String],completion: @escaping (Result<[Track], Error>) -> Void){
+        _ = Spartan.getTracks(ids: trackIds, market: .us, success: { (tracks) in
+            completion(.success(tracks))
+            
+        }, failure: { (error) in
+            completion(.failure(error))
         })
     }
     

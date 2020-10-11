@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Spartan
+import Kingfisher
 
 class FavSongsVC: UIViewController {
     
@@ -67,37 +68,29 @@ class FavSongsVC: UIViewController {
 
 extension FavSongsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 5
         return songs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SongTrackCell
-        cell.selectionStyle = .none
-        cell.favoriteButton.isHidden = true
-        
         let urlString = songs[indexPath.row].album.images.first?.url
-//        print("HELLOOOOO URL STRING \(urlString)")
         let url = URL(string: urlString!)
-        cell.albumImage.kf.setImage(with: url)
-        cell.title.text = songs[indexPath.row].name
-        
         
         guard let songURL = songs[indexPath.row].previewUrl else{
               cell.playButton.isEnabled = false
               return cell
             }
+        
         cell.songURL = songURL
         cell.playButton.isEnabled = true
+        cell.selectionStyle = .none
+        cell.favoriteButton.isHidden = true
         
-//        return cell
-        
-    
         cell.imageView?.kf.setImage(with: url, options: [], completionHandler:  { result in
             
             switch result{
             case .success(let value):
-                
+
                 DispatchQueue.main.async{
                     cell.imageView?.image = value.image
                     cell.textLabel?.text = self.songs[indexPath.row].name
@@ -107,9 +100,11 @@ extension FavSongsVC: UITableViewDataSource, UITableViewDelegate {
                 print(error)
             }
         })
+        
         return cell
         
     }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

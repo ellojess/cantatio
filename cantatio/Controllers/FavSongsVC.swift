@@ -15,6 +15,8 @@ class FavSongsVC: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
+    let favorited = "favorited"
+    
     var favoritedSongs: [String] = UserDefaults.standard.stringArray(forKey: "favorited") ?? [String]()
     
     var songs = [Track]()
@@ -33,6 +35,11 @@ class FavSongsVC: UIViewController {
         self.navigationItem.title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
         fetchSongs()
+//        fetchFavoritedSongs()
+        
+        if let favorites = userDefaults.stringArray(forKey: favorited){
+            self.favoritedSongs = favorites
+        }
     }
     
     func setUpTableView(){
@@ -61,6 +68,24 @@ class FavSongsVC: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    private func fetchFavoritedSongs(){
+        NetworkManager.fetchFavoritesTracks(ids: favoritedSongs) { (result) in
+            
+                switch result{
+                case .failure(let error):
+                    print(error)
+                case .success(let songs):
+                    self.songs  = songs
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+
+                }
+            }
+
     }
     
     

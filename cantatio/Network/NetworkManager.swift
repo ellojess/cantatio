@@ -137,6 +137,14 @@ class NetworkManager {
         task.resume()
     }
     
+    // Fetch User's Favorited Tracks
+    static func fetchFavoritesTracks(ids: [String], completion: @escaping (Result<[Track], Error>) -> Void ){
+        _ = Spartan.getTracks(ids: ids, market: .us, success: { (tracks) in
+            completion(.success(tracks))
+        }, failure: { (error) in
+            completion(.failure(error))
+        })
+    }
     
     
     // Fetch Artist's Top Tracks

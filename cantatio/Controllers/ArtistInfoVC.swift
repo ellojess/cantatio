@@ -14,10 +14,11 @@ import AVFoundation
 
 class ArtistInfoVC: UIViewController {
     
-    var artistID = ""
+//    var artistID = ""
     var songs:[Track] = []
     var favoritedSongs = [String]()
-    
+    lazy var artistID = self.artist.id as! String
+    var artist: Artist! = nil
     var audioPlayer = AVAudioPlayer()
     
     let tableView: UITableView = {

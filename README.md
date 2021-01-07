@@ -9,7 +9,7 @@ Users can login to Cantatio and sign in to their Spotify account with their pers
 
 Once authenticated, Cantatio uses the [Spotify iOS SDK](https://developer.spotify.com/documentation/ios/) to get an access token that is then used by Cantatio to fetch the users data through various network calls  
 
-<img src="preview-images/top-tracks.png" width="300" /> <img src="preview-images/top-artists.png" width="300" /> <img src="preview-images/favorites.png" width="300" />
+<img src="preview-images/top-artists.png" width="300" /> <img src="preview-images/top-tracks.png" width="300" /> <img src="preview-images/favorites.png" width="300" />
 
 ## How to Install 
 Note: Cantatio is still in the process of development. Check back here to stay up to date with the development process. 
